@@ -1,0 +1,9 @@
+type Info @model @auth(rules: [{ allow: public, operations: [read] }, { allow: private }]) {
+  id: ID!
+  business: String!
+  email: String
+  status: String
+  url: String
+  thumbnail: String
+  subscription: String
+}
