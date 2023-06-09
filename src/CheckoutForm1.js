@@ -37,25 +37,28 @@ const CheckoutForm1 = ({ paymentText }) => {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     setProcessing(true);
+    try {
+      const card = elements.getElement(CardElement);
+      const result = await stripe.createPaymentMethod({
+        type: "card",
+        card: card,
+      });
 
-    const card = elements.getElement(CardElement);
-    const result = await stripe.createPaymentMethod({
-      type: "card",
-      card: card,
-    });
+      if (result.error) {
+        setError(`Payment failed ${result.error.message}`);
+        setProcessing(false);
+      } else {
+        setError(null);
+        setProcessing(false);
+        setSucceeded(true);
 
-    if (result.error) {
-      setError(`Payment failed ${result.error.message}`);
-      setProcessing(false);
-    } else {
-      setError(null);
-      setProcessing(false);
-      setSucceeded(true);
-
-      // Now we would send the payment method ID to our backend:
-      const id = result.paymentMethod.id;
-      const { data } = await axios.post('your_api_gateway_url', { id, amount: 5000 }) // $50.00, in cents
-      console.log(data);
+        // Now we would send the payment method ID to our backend:
+        const id = result.paymentMethod.id;
+        const { data } = await axios.post('https://10u8urrpc0.execute-api.us-east-2.amazonaws.com/prod/charge', { id, amount: 50 }) // $50.00, in cents
+        console.log(data);
+      }
+    } catch (error) {
+      console.error('Error making POST request:', error);
     }
   };
 
