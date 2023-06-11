@@ -15,7 +15,7 @@ import CheckoutForm3_5 from './CheckoutForm3_5';
 
 Amplify.configure(awsconfig);
 
-const stripePromise = loadStripe("pk_live_51NFblWBMrRg8GXeN85YnF7cLwWyMJuVTLO5IO8jb781rsZDPR1AtY5lIU5lz9Xk6fT323v8zvlvNwIQ1APJOo9SO00a1zXOwk8");
+const stripePromise = loadStripe("pk_test_51NFblWBMrRg8GXeN5TaOms7M74UM1OqAnM2szl85ryjx6sCuqjtFc9MgqlJd5b7BTrrgWLyi6UXYZe45F482cCeV00C1Okgroj");
 
 function App() {
   const [info, setInfos] = useState([]);
@@ -63,14 +63,17 @@ function App() {
                   <div className="infoStatus">{infoItem.status}</div>
                   <div className="infoUrl">{infoItem.url}</div>
                   <div className="infoThumbnail">{infoItem.thumbnail}</div>
+                  <div className="infoThumbnail">{infoItem.id}</div>
+                  <div className="infoThumbnail">{infoItem.email}</div>
                 </div>
               </Paper>
               <h2>Payment Section</h2>  {/* This is your payment section */}
               <Elements stripe={stripePromise}>
   {infoItem.status === '1' && <CheckoutForm1 paymentText="Pay $50 down payment" />}
-  {infoItem.status === '3' && <CheckoutForm3 paymentText="Pay $50 balance and $100 a month starting next month" />}
+  {infoItem.status === '3' && <CheckoutForm3 paymentText="Pay $50 balance and $100 a month starting next month" email={infoItem.email} id={infoItem.id} />}
   {infoItem.status === '3.5' && <CheckoutForm3_5 paymentText="Pay $950 balance and $100 a year next year" />}
 </Elements>
+
 
             </div>
           )
