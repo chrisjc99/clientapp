@@ -4,6 +4,8 @@ type Info @model @auth(rules: [{ allow: public, operations: [read] }, { allow: p
   email: String
   status: String
   url: String
+  titleUrl: String
   thumbnail: String
   subscription: String
+  stripeCustomerId: String
 }

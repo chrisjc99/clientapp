@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { BeatLoader } from "react-spinners";
+import "./CheckoutForm.css";
 
-const CheckoutForm3 = ({ email, id }) => {
+const CheckoutForm3 = ({ paymentText, email, id, fetchInfo }) => {
   const stripe = useStripe();
   const elements = useElements();
+
+  // Adding state for error and processing status
+  const [error, setError] = useState(null);
+  const [processing, setProcessing] = useState(false);
 
   // The priceId of the subscription
   const priceId = 'price_1NHu4ZBMrRg8GXeNfsHwS00V';
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setProcessing(true);
+    setError(null);
 
     if (!stripe || !elements) {
       // Stripe.js has not loaded yet. Make sure to disable form submission until Stripe.js has loaded.
@@ -25,6 +33,9 @@ const CheckoutForm3 = ({ email, id }) => {
 
     if (error) {
       console.error(error);
+      setError('Payment failed. Please try again.');
+      setProcessing(false);
+      return;
     } else {
       // Prepare the data for your Lambda function
       const lambdaData = {
@@ -53,14 +64,31 @@ const CheckoutForm3 = ({ email, id }) => {
     // Logging the response to the console
     const responseBody = await response.json();
     console.log(responseBody);
+    
+    // Check if subscription was created successfully and refresh the item's info
+    if (response.status === 200) {
+      fetchInfo();
+    } else {
+      console.error(responseBody.error);
+      setError('Payment failed. Please try again.');
+    }
+    setProcessing(false);
   }
 
   return (
+    
     <form onSubmit={handleSubmit}>
+        <p>{paymentText}</p>
       <CardElement />
-      <button type="submit" disabled={!stripe}>
-        Submit Payment
+      <button type="submit" disabled={!stripe || processing}>
+        {processing ? "Processing..." : "Submit Payment"}
       </button>
+      {processing && (
+        <div className="loading">
+          <BeatLoader size={15} color="black" />
+        </div>
+      )}
+      {error && <div className="error-message">{error}</div>}
     </form>
   );
 };

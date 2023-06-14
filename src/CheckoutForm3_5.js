@@ -1,78 +1,95 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import React, { useState } from 'react';
+import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { BeatLoader } from "react-spinners";
 import "./CheckoutForm.css";
 
-const CARD_ELEMENT_OPTIONS = {
-    style: {
-      base: {
-        color: "#32325d",
-        fontFamily: 'Arial, sans-serif',
-        fontSmoothing: "antialiased",
-        fontSize: "16px",
-        "::placeholder": {
-          color: "#32325d"
-        }
-      },
-      invalid: {
-        color: "#fa755a",
-        iconColor: "#fa755a"
-      }
-    }
-  };
-
-const CheckoutForm1 = ({ paymentText }) => {
-  const [succeeded, setSucceeded] = useState(false);
-  const [error, setError] = useState(null);
-  const [processing, setProcessing] = useState(false);
-  const [disabled, setDisabled] = useState(true);
+const CheckoutForm35 = ({ paymentText, email, id, fetchInfo }) => {
   const stripe = useStripe();
   const elements = useElements();
 
-  const handleChange = async (event) => {
-    setDisabled(event.empty);
-    setError(event.error ? event.error.message : "");
-  };
+  // Adding state for error and processing status
+  const [error, setError] = useState(null);
+  const [processing, setProcessing] = useState(false);
 
-  const handleSubmit = async (ev) => {
-    ev.preventDefault();
+  // The priceId of the subscription
+  const priceId = 'price_1NI0ZKBMrRg8GXeN2gT0MrpZ';
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     setProcessing(true);
+    setError(null);
 
-    const card = elements.getElement(CardElement);
-    const result = await stripe.createPaymentMethod({
-      type: "card",
-      card: card,
+    if (!stripe || !elements) {
+      // Stripe.js has not loaded yet. Make sure to disable form submission until Stripe.js has loaded.
+      return;
+    }
+
+    const cardElement = elements.getElement(CardElement);
+
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: 'card',
+      card: cardElement,
     });
 
-    if (result.error) {
-      setError(`Payment failed ${result.error.message}`);
+    if (error) {
+      console.error(error);
+      setError('Payment failed. Please try again.');
       setProcessing(false);
+      return;
     } else {
-      setError(null);
-      setProcessing(false);
-      setSucceeded(true);
+      // Prepare the data for your Lambda function
+      const lambdaData = {
+        priceId,
+        paymentMethodId: paymentMethod.id,
+        dynamoItemId: id,
+        userEmail: email,
+      };
 
-      // Now we would send the payment method ID to our backend:
-      const id = result.paymentMethod.id;
-      const { data } = await axios.post('your_api_gateway_url', { id, amount: 5000 }) // $50.00, in cents
-      console.log(data);
+      // Pass lambdaData to your Lambda function
+      invokeLambdaFunction(lambdaData);
     }
   };
 
+  // Function to invoke the Lambda function
+  const invokeLambdaFunction = async (data) => {
+    console.log(data);
+    const response = await fetch("https://ckn8566hw6.execute-api.us-east-2.amazonaws.com/prod/yearsubscription", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    // Logging the response to the console
+    const responseBody = await response.json();
+    console.log(responseBody);
+    
+    // Check if subscription was created successfully and refresh the item's info
+    if (response.status === 200) {
+      fetchInfo();
+    } else {
+      console.error(responseBody.error);
+      setError('Payment failed. Please try again.');
+    }
+    setProcessing(false);
+  }
+
   return (
-    <form id="payment-form" onSubmit={handleSubmit}>
-      <p>{paymentText}</p>  {/* Display the payment text here */}
-      <CardElement id="card-element" options={CARD_ELEMENT_OPTIONS} onChange={handleChange} />
-      <button disabled={processing || disabled || succeeded} id="submit">
-        <span id="button-text">{processing ? "Processing..." : "Pay"}</span>
+    <form onSubmit={handleSubmit}>
+        <p>{paymentText}</p>
+      <CardElement />
+      <button type="submit" disabled={!stripe || processing}>
+        {processing ? "Processing..." : "Submit Payment"}
       </button>
-      {error && (
-        <div className="card-error" role="alert">
-          {error}
+      {processing && (
+        <div className="loading">
+          <BeatLoader size={15} color="black" />
         </div>
       )}
+      {error && <div className="error-message">{error}</div>}
     </form>
   );
 };
 
-export default CheckoutForm1;
+export default CheckoutForm35;
