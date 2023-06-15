@@ -9,8 +9,10 @@ export const getInfo = /* GraphQL */ `
       email
       status
       url
+      titleUrl
       thumbnail
       subscription
+      stripeCustomerId
       createdAt
       updatedAt
     }
@@ -29,8 +31,10 @@ export const listInfos = /* GraphQL */ `
         email
         status
         url
+        titleUrl
         thumbnail
         subscription
+        stripeCustomerId
         createdAt
         updatedAt
       }

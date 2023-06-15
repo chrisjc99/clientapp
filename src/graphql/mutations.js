@@ -12,8 +12,10 @@ export const createInfo = /* GraphQL */ `
       email
       status
       url
+      titleUrl
       thumbnail
       subscription
+      stripeCustomerId
       createdAt
       updatedAt
     }
@@ -30,8 +32,10 @@ export const updateInfo = /* GraphQL */ `
       email
       status
       url
+      titleUrl
       thumbnail
       subscription
+      stripeCustomerId
       createdAt
       updatedAt
     }
@@ -48,8 +52,10 @@ export const deleteInfo = /* GraphQL */ `
       email
       status
       url
+      titleUrl
       thumbnail
       subscription
+      stripeCustomerId
       createdAt
       updatedAt
     }
