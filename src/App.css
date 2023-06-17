@@ -1,17 +1,219 @@
 
 
+.app {
+  background-color: #f2eee9;
+}
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form label {
+  margin-top: 10px;
+}
+
+.form input {
+  margin-bottom: 10px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  color: #42382e;
+  padding-left: 10px;
+  margin-top: 5px;
+}
+
+.button{
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  height: 40px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  color: #f2eee9;
+  background-color: #4B5A68;
+  width: 200px;
+  cursor: pointer;
+}
+
+.button.pressed {
+  box-shadow: none;
+  transform: translate(5px, 5px);
+}
+
+.button.disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+.getStarted{
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.loginActions{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.loginOr{
+  font-size: 28px;
+}
+
+.loginSwitch{
+  font-size: 18px;
+}
+
+.navContents{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 120px;
+  margin-right: 120px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+@media (max-width: 991px) {
+  .navContents {
+    margin-left: 65px;
+    margin-right: 65px;
+  }
+}
+
+@media (max-width: 767px) {
+  .navContents {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+}
+
+@media (max-width: 479px) {
+  .navContents {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+
+
+.navbar {
+  background-color: #4B5A68;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar ul li {
+  margin-left: 20px;
+}
+
+
+.navButtons a {
+  color: #f2eee9; /* Makes the text color white */
+  text-decoration: none; /* Removes underline */
+  font-size: 14px;
+}
+
+.navButtons a:hover {
+  color: #f2eee9; /* Makes the text color white even when hovered */
+}
+
+.navButtons .logout {
+  color: #4b5a68;  /* Changes the button's text color to white */
+}
+
+.logout{
+grid-row-gap: 8px;
+background-color: #f2eee9;
+border-radius: 3px;
+flex: 0 auto;
+justify-content: center;
+align-items: center;
+margin-top: 5px;
+margin-bottom: 5px;
+padding: 8px 20px;
+display: flex;
+border: none;
+cursor: pointer;
+}
+.logoutText{
+  height: 24px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: expanded;
+}
 .column-one {
   width: 30%; /* This will limit their width to 30% of the parent container width */
   overflow: auto; /* This will add scrollbars if the content inside the divs is too wide */
   text-align: center; /* Center text in the column */
   background-color: #f2eee9;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 767px) {
+  .column-one {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .userInfo {
+    height: auto;
+  }
+}
+
+.welcome-message{
+  font-size: 28px;
+  font-weight: 100;
+  color: #42382e;
+}
+
+.loginHeader{
+  font-size: 32px;
+  font-weight: 900;
+  color: #42382e;
+  display: flex;
+  justify-content: center;
+}
+
+.form{
+  max-width: 80%;
+  width: 100%;
+}
+
+.error {
+  color: red;
 }
 
 .column-two {
+  font-size: 12px;
   width: 70%; /* This will limit their width to 70% of the parent container width */
   overflow: auto; /* This will add scrollbars if the content inside the divs is too wide */
-  text-align: center; /* Center text in the column */
+  text-align: left;
   background-color: #ceccb8;
+  min-height: 100vh;
+  padding: 60px;
+  border-radius: 20px 0 0 0;
+  display: flex;
+  justify-content: center;
 }
 
 .content {
@@ -22,6 +224,15 @@
   flex-direction: row;
   height: 100vh;
   flex-wrap: nowrap; /* Do not wrap the flex items */
+}
+
+
+/* Media query for screens 767px or less */
+@media screen and (max-width: 767px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .welcome-message {
@@ -37,4 +248,9 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: black;
+}
+
+.userMessage{
+  font-weight: 100;
+  font-size: 28px;
 }

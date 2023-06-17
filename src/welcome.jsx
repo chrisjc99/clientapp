@@ -4,7 +4,7 @@ import React from 'react';
 function Welcome() {
   return (
     <div className="welcome-message">
-      <h1>Your first step in launching a new website</h1>
+      <div>Your first step in launching a new website</div>
     </div>
   );
 }

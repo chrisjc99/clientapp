@@ -20,18 +20,11 @@ const stripePromise = loadStripe("pk_test_51NFblWBMrRg8GXeN5TaOms7M74UM1OqAnM2sz
 
 function Dashboard({ info, fetchInfo }) {
 
-  const signOut = async () => {
-    try {
-      await Auth.signOut();
-    } catch (error) {
-      console.log('Error signing out: ', error);
-    }
-  };
 
   return (
     <div className="Dashboard">
       <header className="Dashboard-header">
-        <button onClick={signOut}>Sign Out</button>
+
         <div className="infoList"> 
         {info.map(infoItem => {
           return(

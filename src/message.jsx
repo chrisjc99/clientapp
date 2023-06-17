@@ -5,7 +5,7 @@ import React from 'react';
 function Message({ info }) { // Accept info as a prop
   return (
     <div className="userInfo">
-      <h1>View and manage your website here.</h1>
+      <div className='userMessage'>View and manage your website here.</div>
       {info.map((infoItem, index) => (
         <div key={index}>
           <div>{infoItem.titleUrl}</div>
