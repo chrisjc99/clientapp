@@ -7,12 +7,16 @@ import "./CheckoutForm.css";
 const CARD_ELEMENT_OPTIONS = {
   style: {
     base: {
-      color: "#32325d",
-      fontFamily: 'Arial, sans-serif',
+      color: "#42382e",
+      fontFamily: 'Montserrat, sans-serif',
       fontSmoothing: "antialiased",
       fontSize: "16px",
+      backgroundColor: "#f2eee9",
       "::placeholder": {
-        color: "#32325d"
+        color: "#42382e"
+      },
+      "::selection": {
+        backgroundColor: "#ffffff"
       }
     },
     invalid: {
@@ -68,20 +72,63 @@ const CheckoutForm1 = ({ paymentText, id: dynamoItemId, fetchInfo }) => {
   };
 
   return (
-    <form id="payment-form" onSubmit={handleSubmit}>
-      <p>{paymentText}</p>
-      <CardElement id="card-element" options={CARD_ELEMENT_OPTIONS} onChange={handleChange} />
-      <button disabled={processing} id="submit">
-        <span id="button-text">{processing ? "Processing..." : "Pay"}</span>
-      </button>
-      {processing && (
-        <div className="loading">
-          <BeatLoader size={15} color="black" />
+    <div>
+<div>
+    <div className="status-indicator">
+      <div className="status-item">
+        <div className="circle-container">
+          <div className="circle large-circle">
+            <div className="circle-inner"></div>
+          </div>
         </div>
-      )}
-      {error && <div className="error-message">Payment failed. Please try again.</div>}
-    </form>
-  );
+        <div className="subtitle">AWAITING DOWN PAYMENT</div>
+      </div>
+      <div className="status-item">
+        <div className="circle-container">
+          <div className="circle small-circle">
+            <div className="circle-inner"></div>
+          </div>
+        </div>
+        <div className="subtitle">DEVELOPING YOUR SITE</div>
+      </div>
+      <div className="status-item">
+        <div className="circle-container">
+          <div className="circle small-circle">
+            <div className="circle-inner"></div>
+          </div>
+        </div>
+        <div className="subtitle">PUBLISHING SITE</div>
+      </div>
+    </div>
+</div>
+
+<hr />
+  
+      <form id="payment-form" onSubmit={handleSubmit}>
+      <div className="instructions">Please complete the down payment</div>
+
+      <div className="inputs">
+      <input type="text" id="name" placeholder="Full Name" required />
+
+      <div className="cardContainer">
+        <CardElement id="card-element" options={CARD_ELEMENT_OPTIONS} onChange={handleChange} />
+      </div>
+      </div>
+        <div className="priceTag">
+          <div className="price">Total: $50.00</div>
+           <button disabled={processing} id="submit">
+          <span id="button-text">{processing ? "Processing..." : "Pay"}</span>
+        </button></div>
+
+        {processing && (
+          <div className="loading">
+            <BeatLoader size={15} color="black" />
+          </div>
+        )}
+        {error && <div className="error-message">Payment failed. Please try again.</div>}
+      </form>
+    </div>
+  );  
 };
 
 export default CheckoutForm1;

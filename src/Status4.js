@@ -1,4 +1,5 @@
 import React from 'react';
+import "./CheckoutForm.css";
 
 const Status4 = ({ customerId }) => {
 
@@ -28,8 +29,9 @@ const Status4 = ({ customerId }) => {
 
     return (
         <div className="status-message">
-            <p>Active. Your Next Payment will be charged on DATE.</p>
-            <button onClick={handleManageSubscription}>Manage Subscription</button>
+            <div className='active'>ACTIVE</div>
+            <div className='nextPayment'>Your next payment will be charged on DATE.</div>
+            <button className='button' onClick={handleManageSubscription}>Manage Subscription</button>
         </div>
     );
 };

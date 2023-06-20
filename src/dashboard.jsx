@@ -8,6 +8,7 @@ import { withAuthenticator } from '@aws-amplify/ui-react';
 import Paper from '@mui/material/Paper';
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import status0 from './Status0'; 
 import CheckoutForm1 from './CheckoutForm1';  
 import Status2 from './Status2'; 
 import CheckoutForm3 from './CheckoutForm3'; 
@@ -29,15 +30,8 @@ function Dashboard({ info, fetchInfo }) {
         {info.map(infoItem => {
           return(
             <div>
-              <Paper variant ="outlined" elevation ={2}>
-                <div className="infoCard"></div>
-                <div>
-                  <div className="infotitleUrl">{infoItem.titleUrl}</div>
-                  <div className="infoBusiness">{infoItem.business}</div>
-                  <div className="infoThumbnail">{infoItem.email}</div>
-                </div>
-              </Paper>
-              <h2>Status</h2>
+              <div className='status'>Status</div>
+              
               <Elements stripe={stripePromise}>
                 {infoItem.status === '1' && <CheckoutForm1 paymentText="Pay $50 down payment" id={infoItem.id} fetchInfo={fetchInfo} />}
                 {infoItem.status === '1e' && <CheckoutForm1 paymentText={<><p>Payment Error. Please try again.</p><p>Pay $50 down payment</p></>} id={infoItem.id} fetchInfo={fetchInfo} />}

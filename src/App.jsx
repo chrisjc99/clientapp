@@ -19,7 +19,32 @@ function App() {
   const [verificationCode, setVerificationCode] = useState('');
   const [isFormValid, setIsFormValid] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [isBackButtonPressed, setIsBackButtonPressed] = useState(false);
+  const [isConfirmButtonPressed, setIsConfirmButtonPressed] = useState(false);
 
+  const backButtonStyle = {
+    position: 'relative',
+    transition: 'all 0.03s ease-in-out', // Reduced transition time to speed up animation
+    boxShadow: isBackButtonPressed ? 'none' : '5px 5px 0px rgba(0, 0, 0, 0.2)',
+    transform: isBackButtonPressed ? 'translate(5px, 5px)' : 'none',
+  };
+
+  const confirmButtonStyle = {
+    position: 'relative',
+    transition: 'all 0.03s ease-in-out', // Reduced transition time to speed up animation
+    boxShadow: isConfirmButtonPressed ? 'none' : '5px 5px 0px rgba(0, 0, 0, 0.2)',
+    transform: isConfirmButtonPressed ? 'translate(5px, 5px)' : 'none',
+  };
+
+  const clearFields = () => {
+    setEmail('');
+    setPassword('');
+    setConfirmPassword('');
+    setVerificationCode('');
+    setErrorMessage('');
+  };
+
+  
   useEffect(() => {
     checkFormValidity();
   }, [email, password, confirmPassword, isCreatingAccount]);
@@ -104,6 +129,8 @@ function App() {
       setIsButtonPressed(true);
       const user = await Auth.signIn(email, password);
       setIsSignedIn(true);
+      clearFields();
+      fetchInfo();  // Add this line
     } catch (error) {
       console.log('error signing in', error);
       setErrorMessage(error.message);
@@ -124,7 +151,7 @@ function App() {
   const signUp = async () => {
     try {
       if (password !== confirmPassword) {
-        setErrorMessage("Passwords do not match");
+        alert("Passwords do not match");
         return;
       }
   
@@ -137,11 +164,18 @@ function App() {
         },
       });
       console.log(user);
-      setIsConfirming(true);
-      setVerificationCode('');
+      setIsConfirming(true); // Switch to verification stage
+  
+
+      setVerificationCode(''); // Keep verification code field as it is
     } catch (error) {
-      console.log('error signing up:', error);
-      setErrorMessage(error.message);
+      if (error.code === 'UsernameExistsException') {
+        // An account with this email already exists but hasn't been confirmed yet.
+        // Switch to verification stage to allow the user to confirm their account.
+        setIsConfirming(true);
+      } else {
+        console.log('error signing up:', error);
+      }
     } finally {
       setIsButtonPressed(false);
     }
@@ -167,14 +201,36 @@ function App() {
             isCreatingAccount ? (
               isConfirming ? (
                 <div className='form'>
+
+                  <div className='loginHeader'>Enter the code sent to your email.</div>
                   <label>Verification Code</label>
                   <input
                     name="verificationCode"
                     placeholder="Enter Verification Code"
                     onChange={e => setVerificationCode(e.target.value)}
                   />
-                  <button className='button' onClick={confirmSignUp}>Confirm Code</button>
-                  <button className='button' onClick={goBack}>Back to Login</button>
+                  <div className= 'confirmOrBack'>
+                  <button 
+                    className='backToLogin' 
+                    onClick={goBack} 
+                    style={backButtonStyle}
+                    onMouseDown={() => setIsBackButtonPressed(true)}
+                    onMouseUp={() => setIsBackButtonPressed(false)}
+                    onMouseLeave={() => setIsBackButtonPressed(false)}
+                  >
+                    Back to Login
+                  </button>
+                  <button 
+                      className='button' 
+                      onClick={confirmSignUp}
+                      style={confirmButtonStyle}
+                      onMouseDown={() => setIsConfirmButtonPressed(true)}
+                      onMouseUp={() => setIsConfirmButtonPressed(false)}
+                      onMouseLeave={() => setIsConfirmButtonPressed(false)}
+                    >
+                      Confirm Code
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <div className='form'>
@@ -227,7 +283,10 @@ function App() {
                     <div className='loginOr'>
                   -OR-
                 </div>
-                    <div className='loginSwitch'>Already have an account? <a className='getStarted' onClick={() => setIsCreatingAccount(false)}>Log In</a></div>
+                    <div className='loginSwitch'>Already have an account? <a className='getStarted' onClick={() => {
+              setIsCreatingAccount(false);
+              clearFields();
+            }}>Log In</a></div>
                     </div>
                 </div>
               )
@@ -245,14 +304,14 @@ function App() {
                 />
                 <label>Password</label>
                 <input
-                  name="password"
-                  type="password"
-                  placeholder="Enter your Password"
-                  onChange={e => {
-                    setPassword(e.target.value);
-                    setErrorMessage(''); // clear error message
-                  }}
-                />
+                name="password"
+                type="password"
+                placeholder="Enter your Password"
+                onChange={e => {
+                  setPassword(e.target.value);
+                  setErrorMessage(''); // clear error message
+                }}
+              />
                 
                 <div className='loginActions'>
                 {errorMessage && <div className="error">{errorMessage}</div>}
@@ -274,7 +333,10 @@ function App() {
                 <div className='loginOr'>
                   -OR-
                 </div>
-                <div className='loginSwitch'>Don't have an account? <a className='getStarted' onClick={() => setIsCreatingAccount(true)}>Get started</a></div>
+                <div className='loginSwitch'>Don't have an account? <a className='getStarted' onClick={() => {
+              setIsCreatingAccount(true);
+              clearFields();
+            }}>Get started</a></div>
                 </div>
               </div>
             )

@@ -3,6 +3,29 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { BeatLoader } from "react-spinners";
 import "./CheckoutForm.css";
 
+
+const CARD_ELEMENT_OPTIONS = {
+  style: {
+    base: {
+      color: "#42382e",
+      fontFamily: 'Montserrat, sans-serif',
+      fontSmoothing: "antialiased",
+      fontSize: "16px",
+      backgroundColor: "#f2eee9",
+      "::placeholder": {
+        color: "#42382e"
+      },
+      "::selection": {
+        backgroundColor: "#ffffff"
+      }
+    },
+    invalid: {
+      color: "#fa755a",
+      iconColor: "#fa755a"
+    }
+  }
+};
+
 const CheckoutForm3 = ({ paymentText, email, id, fetchInfo }) => {
   const stripe = useStripe();
   const elements = useElements();
@@ -76,13 +99,64 @@ const CheckoutForm3 = ({ paymentText, email, id, fetchInfo }) => {
   }
 
   return (
-    
-    <form onSubmit={handleSubmit}>
-        <p>{paymentText}</p>
-      <CardElement />
-      <button type="submit" disabled={!stripe || processing}>
+    <div>
+    <div>
+    <div className="status-indicator">
+      <div className="status-item">
+        <div className="circle-container">
+          <div className="circle small-circle">
+            <div className="circle-inner"></div>
+          </div>
+        </div>
+        <div className="subtitle">AWAITING DOWN PAYMENT</div>
+      </div>
+      <div className="status-item">
+        <div className="circle-container">
+          <div className="circle small-circle">
+            <div className="circle-inner"></div>
+          </div>
+        </div>
+        <div className="subtitle">DEVELOPING YOUR SITE</div>
+      </div>
+      <div className="status-item">
+        <div className="circle-container">
+          <div className="circle large-circle">
+            <div className="circle-inner"></div>
+          </div>
+        </div>
+        <div className="subtitle">PUBLISHING SITE</div>
+      </div>
+    </div>
+</div>
+
+<hr />
+    <form id='payment-form' onSubmit={handleSubmit}>
+         <div className="instructions">To publish your site, pay the remaining balance and agree to monthly payments.</div>
+      <div className='inputs'>
+         <input type="text" id="name" placeholder="Full Name" required />
+         <div className='cardContainer'>
+         <CardElement id='card-element' options={CARD_ELEMENT_OPTIONS}/>
+         </div>
+      </div>
+
+      <div className='priceTag'>
+    <div className='pmtInfo'>
+    <div className='recurring'>
+      <div c>Starting xx/xx/xx</div>
+      <div >$100.00/mo</div>
+    </div>
+
+    <div className='oneTimePmt'>
+    <div >Due Today</div>
+      <div > $50.00</div>
+    </div>
+    </div>
+    <button id='submit' type="submit" disabled={!stripe || processing}>
         {processing ? "Processing..." : "Submit Payment"}
       </button>
+      </div>
+
+
       {processing && (
         <div className="loading">
           <BeatLoader size={15} color="black" />
@@ -90,6 +164,9 @@ const CheckoutForm3 = ({ paymentText, email, id, fetchInfo }) => {
       )}
       {error && <div className="error-message">{error}</div>}
     </form>
+    </div>
+
+
   );
 };
 

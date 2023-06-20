@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://localhost:3000/google.com -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="icon" href="http://localhost:3000/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="http://localhost:3000/logo192.png">
+
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+
+    <title>React App</title>
+  <script defer="" src="./React App_files/bundle.js"></script><style>@import url(https://fonts.googleapis.com/css2?family=Montserrat&display=swap);</style><style>body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: white !important;
+  color: black ;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9pbmRleC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBR0E7RUFDRSxTQUFTO0VBQ1QscUNBQXFDO0VBQ3JDLG1DQUFtQztFQUNuQyxrQ0FBa0M7RUFDbEMsa0NBQWtDO0VBQ2xDLGFBQWE7QUFDZiIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgdXJsKCdodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2NzczI/ZmFtaWx5PU1vbnRzZXJyYXQmZGlzcGxheT1zd2FwJyk7XG5cblxuYm9keSB7XG4gIG1hcmdpbjogMDtcbiAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBncmF5c2NhbGU7XG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlICFpbXBvcnRhbnQ7XG4gIGNvbG9yOiBibGFjayA7XG59Il0sInNvdXJjZVJvb3QiOiIifQ== */</style><style>
+
+.app {
+  background-color: #f2eee9;
+}
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form label {
+  margin-top: 10px;
+}
+
+.form input {
+  margin-bottom: 10px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  color: #42382e;
+  padding-left: 10px;
+  margin-top: 5px;
+}
+
+.button{
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  height: 40px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  color: #f2eee9;
+  background-color: #4B5A68;
+  width: 200px;
+  cursor: pointer;
+}
+
+.status{
+  font-size: 60px;
+  font-weight: 900;
+  text-align: center;
+  color: #42382e;
+}
+
+.Dashboard{
+  width: 100%;
+  max-width: 80%;
+}
+
+.button.pressed {
+  box-shadow: none;
+  transform: translate(5px, 5px);
+}
+
+.button.disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+.getStarted{
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.loginActions{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.loginOr{
+  font-size: 28px;
+}
+
+.loginSwitch{
+  font-size: 18px;
+}
+
+.navContents{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 120px;
+  margin-right: 120px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+@media (max-width: 991px) {
+  .navContents {
+    margin-left: 65px;
+    margin-right: 65px;
+  }
+}
+
+@media (max-width: 767px) {
+  .navContents {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+}
+
+@media (max-width: 479px) {
+  .navContents {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+
+
+.navbar {
+  background-color: #4B5A68;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar ul li {
+  margin-left: 20px;
+}
+
+
+.navButtons a {
+  color: #f2eee9; /* Makes the text color white */
+  text-decoration: none; /* Removes underline */
+  font-size: 14px;
+}
+
+.navButtons a:hover {
+  color: #f2eee9; /* Makes the text color white even when hovered */
+}
+
+.navButtons .logout {
+  color: #4b5a68;  /* Changes the button's text color to white */
+}
+
+.logout{
+grid-row-gap: 8px;
+background-color: #f2eee9;
+border-radius: 3px;
+flex: 0 1 auto;
+justify-content: center;
+align-items: center;
+margin-top: 5px;
+margin-bottom: 5px;
+padding: 8px 20px;
+display: flex;
+border: none;
+cursor: pointer;
+}
+
+
+.logoutText{
+  height: 24px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: expanded;
+}
+
+
+.content {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-direction: row;
+  height: 100vh;
+  flex-wrap: nowrap; /* Do not wrap the flex items */
+}
+
+.column-one {
+  display: flex;
+  justify-content: center;
+  width: 40%; 
+  overflow: auto;
+  text-align: center;
+  background-color: #f2eee9;
+  min-height: 100vh;
+  padding-left: 16px;
+  padding-right: 16px;
+
+}
+
+
+.column-two {
+  font-size: 12px;
+  width: 100%; /* This will limit their width to 70% of the parent container width */
+  overflow: auto; /* This will add scrollbars if the content inside the divs is too wide */
+  text-align: left;
+  background-color: #ceccb8;
+  min-height: 100vh;
+  padding: 60px;
+  border-radius: 20px 0 0 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Media query for screens 1000px or less */
+@media screen and (max-width: 1000px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .column-one {
+    width: 100%;
+    min-height: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .column-two{
+    width: 100%;
+  }
+}
+
+.infoContent{
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.thumbnail{
+  width: 100%;
+  max-width: 425px;
+}
+
+.userInfo{
+  width: 100%;
+}
+
+.buttonDiv{
+  width: auto;
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.buttonLink{
+  width: 200px;
+}
+
+@media screen and (max-width: 1000px) {
+  .userInfo {
+    height: auto;
+  }
+}
+
+.welcome-message{
+  font-size: 28px;
+  font-weight: 100;
+  color: #42382e;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 16px;
+  text-align: left; /* this will align text to the left for both Welcome and Message */
+
+}
+
+.loginHeader{
+  font-size: 32px;
+  font-weight: 900;
+  color: #42382e;
+  display: flex;
+  justify-content: center;
+}
+
+.form{
+  max-width: 80%;
+  width: 100%;
+}
+
+.error {
+  color: #4b5a68;
+  font-size: large;
+}
+
+.backToLogin{
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  height: 40px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  color: #f2eee9;
+  background-color: #96764F;
+  width: 200px;
+  cursor: pointer;
+}
+
+.confirmOrBack{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+
+.App-header {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+.userMessage{
+  width: 100%;
+  font-size: 40px;
+  font-weight: 900;
+  color: #42382e;
+  padding-top: 16px;
+  text-align: left; /* this will align text to the left for both Welcome and Message */
+}
+
+@media (min-width: 1001px) and (max-width: 1300px) {
+  .userMessage {
+    font-size: 3vw;
+  }
+}
+
+
+.status-indicator {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.circle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px; /* The container for the circle has a fixed height */
+}
+
+.circle-inner {
+  border-radius: 50%;
+}
+
+.large-circle .circle-inner {
+  width: 50px;
+  height: 50px;
+  background-color: #4b5a68;
+  box-shadow: 5px 4px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+.small-circle .circle-inner,
+.publishing-site .circle-inner {
+  width: 25px;
+  height: 25px;
+  background-color: #4b5a68;
+}
+
+.subtitle {
+  text-align: center;
+  width: 200px;
+  height: 15px;
+  font-weight: 900;
+  color: #42382e;
+}
+
+.status-item {
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center the items vertically */
+  height: 100px; /* This will give enough space for the circle and subtitle */
+  position: relative; /* This will allow the absolute positioning of child elements */
+}
+/*# sourceMappingURL=data:application/json;base64,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LGFBQWE7RUFDYixzQkFBc0I7RUFDdEIsbUJBQW1CO0VBQ25CLHVCQUF1QjtFQUN2Qiw2QkFBNkI7RUFDN0IsWUFBWTtBQUNkOztBQUVBO0VBQ0UsV0FBVztFQUNYLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsY0FBYztFQUNkLGlCQUFpQjtFQUNqQixnQkFBZ0IsRUFBRSxrRUFBa0U7QUFDdEY7O0FBRUE7RUFDRTtJQUNFLGNBQWM7RUFDaEI7QUFDRjs7O0FBR0E7RUFDRSxhQUFhO0VBQ2IsNkJBQTZCO0VBQzdCLGFBQWE7QUFDZjs7QUFFQTtFQUNFLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsbUJBQW1CO0VBQ25CLFlBQVksRUFBRSxvREFBb0Q7QUFDcEU7O0FBRUE7RUFDRSxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLHlCQUF5QjtFQUN6Qiw4Q0FBOEM7QUFDaEQ7O0FBRUE7O0VBRUUsV0FBVztFQUNYLFlBQVk7RUFDWix5QkFBeUI7QUFDM0I7O0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsWUFBWTtFQUNaLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsY0FBYztBQUNoQjs7QUFFQTtFQUNFLFFBQVE7RUFDUixhQUFhO0VBQ2Isc0JBQXNCO0VBQ3RCLG1CQUFtQjtFQUNuQix1QkFBdUIsRUFBRSxnQ0FBZ0M7RUFDekQsYUFBYSxFQUFFLDREQUE0RDtFQUMzRSxrQkFBa0IsRUFBRSwrREFBK0Q7QUFDckYiLCJzb3VyY2VzQ29udGVudCI6WyJcblxuLmFwcCB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmMmVlZTk7XG59XG5cblxuLmZvcm0ge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xufVxuXG4uZm9ybSBsYWJlbCB7XG4gIG1hcmdpbi10b3A6IDEwcHg7XG59XG5cbi5mb3JtIGlucHV0IHtcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcbiAgaGVpZ2h0OiA0MHB4O1xuICBib3JkZXI6IG5vbmU7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgY29sb3I6ICM0MjM4MmU7XG4gIHBhZGRpbmctbGVmdDogMTBweDtcbiAgbWFyZ2luLXRvcDogNXB4O1xufVxuXG4uYnV0dG9ue1xuICBsZXR0ZXItc3BhY2luZzogMnB4O1xuICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuICBoZWlnaHQ6IDQwcHg7XG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XG4gIGJvcmRlcjogbm9uZTtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBjb2xvcjogI2YyZWVlOTtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzRCNUE2ODtcbiAgd2lkdGg6IDIwMHB4O1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbi5zdGF0dXN7XG4gIGZvbnQtc2l6ZTogNjBweDtcbiAgZm9udC13ZWlnaHQ6IDkwMDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBjb2xvcjogIzQyMzgyZTtcbn1cblxuLkRhc2hib2FyZHtcbiAgd2lkdGg6IDEwMCU7XG4gIG1heC13aWR0aDogODAlO1xufVxuXG4uYnV0dG9uLnByZXNzZWQge1xuICBib3gtc2hhZG93OiBub25lO1xuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSg1cHgsIDVweCk7XG59XG5cbi5idXR0b24uZGlzYWJsZWQge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBncmF5O1xuICBjdXJzb3I6IG5vdC1hbGxvd2VkO1xufVxuXG4uZ2V0U3RhcnRlZHtcbiAgY29sb3I6IGJsdWU7XG4gIHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lO1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbi5sb2dpbkFjdGlvbnN7XG4gIG1hcmdpbi10b3A6IDQwcHg7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBnYXA6IDIwcHg7XG59XG5cbi5sb2dpbk9ye1xuICBmb250LXNpemU6IDI4cHg7XG59XG5cbi5sb2dpblN3aXRjaHtcbiAgZm9udC1zaXplOiAxOHB4O1xufVxuXG4ubmF2Q29udGVudHN7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgbWFyZ2luLWxlZnQ6IDEyMHB4O1xuICBtYXJnaW4tcmlnaHQ6IDEyMHB4O1xuICBwYWRkaW5nLXRvcDogNXB4O1xuICBwYWRkaW5nLWJvdHRvbTogNXB4O1xufVxuXG5AbWVkaWEgKG1heC13aWR0aDogOTkxcHgpIHtcbiAgLm5hdkNvbnRlbnRzIHtcbiAgICBtYXJnaW4tbGVmdDogNjVweDtcbiAgICBtYXJnaW4tcmlnaHQ6IDY1cHg7XG4gIH1cbn1cblxuQG1lZGlhIChtYXgtd2lkdGg6IDc2N3B4KSB7XG4gIC5uYXZDb250ZW50cyB7XG4gICAgbWFyZ2luLWxlZnQ6IDMwcHg7XG4gICAgbWFyZ2luLXJpZ2h0OiAzMHB4O1xuICB9XG59XG5cbkBtZWRpYSAobWF4LXdpZHRoOiA0NzlweCkge1xuICAubmF2Q29udGVudHMge1xuICAgIG1hcmdpbi1sZWZ0OiAxMHB4O1xuICAgIG1hcmdpbi1yaWdodDogMTBweDtcbiAgfVxufVxuXG5cblxuLm5hdmJhciB7XG4gIGJhY2tncm91bmQtY29sb3I6ICM0QjVBNjg7XG59XG5cbi5uYXZiYXIgdWwge1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGZsZXgtZW5kO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBsaXN0LXN0eWxlOiBub25lO1xuICBwYWRkaW5nOiAwO1xuICBtYXJnaW46IDA7XG59XG5cbi5uYXZiYXIgdWwgbGkge1xuICBtYXJnaW4tbGVmdDogMjBweDtcbn1cblxuXG4ubmF2QnV0dG9ucyBhIHtcbiAgY29sb3I6ICNmMmVlZTk7IC8qIE1ha2VzIHRoZSB0ZXh0IGNvbG9yIHdoaXRlICovXG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTsgLyogUmVtb3ZlcyB1bmRlcmxpbmUgKi9cbiAgZm9udC1zaXplOiAxNHB4O1xufVxuXG4ubmF2QnV0dG9ucyBhOmhvdmVyIHtcbiAgY29sb3I6ICNmMmVlZTk7IC8qIE1ha2VzIHRoZSB0ZXh0IGNvbG9yIHdoaXRlIGV2ZW4gd2hlbiBob3ZlcmVkICovXG59XG5cbi5uYXZCdXR0b25zIC5sb2dvdXQge1xuICBjb2xvcjogIzRiNWE2ODsgIC8qIENoYW5nZXMgdGhlIGJ1dHRvbidzIHRleHQgY29sb3IgdG8gd2hpdGUgKi9cbn1cblxuLmxvZ291dHtcbmdyaWQtcm93LWdhcDogOHB4O1xuYmFja2dyb3VuZC1jb2xvcjogI2YyZWVlOTtcbmJvcmRlci1yYWRpdXM6IDNweDtcbmZsZXg6IDAgYXV0bztcbmp1c3RpZnktY29udGVudDogY2VudGVyO1xuYWxpZ24taXRlbXM6IGNlbnRlcjtcbm1hcmdpbi10b3A6IDVweDtcbm1hcmdpbi1ib3R0b206IDVweDtcbnBhZGRpbmc6IDhweCAyMHB4O1xuZGlzcGxheTogZmxleDtcbmJvcmRlcjogbm9uZTtcbmN1cnNvcjogcG9pbnRlcjtcbn1cblxuXG4ubG9nb3V0VGV4dHtcbiAgaGVpZ2h0OiAyNHB4O1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBmb250LXNpemU6IDE0cHg7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIGZvbnQtc3RyZXRjaDogZXhwYW5kZWQ7XG59XG5cblxuLmNvbnRlbnQge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgYWxpZ24taXRlbXM6IHN0YXJ0O1xuICBmbGV4LWRpcmVjdGlvbjogcm93O1xuICBoZWlnaHQ6IDEwMHZoO1xuICBmbGV4LXdyYXA6IG5vd3JhcDsgLyogRG8gbm90IHdyYXAgdGhlIGZsZXggaXRlbXMgKi9cbn1cblxuLmNvbHVtbi1vbmUge1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgd2lkdGg6IDQwJTsgXG4gIG92ZXJmbG93OiBhdXRvO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmMmVlZTk7XG4gIG1pbi1oZWlnaHQ6IDEwMHZoO1xuICBwYWRkaW5nLWxlZnQ6IDE2cHg7XG4gIHBhZGRpbmctcmlnaHQ6IDE2cHg7XG5cbn1cblxuXG4uY29sdW1uLXR3byB7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgd2lkdGg6IDEwMCU7IC8qIFRoaXMgd2lsbCBsaW1pdCB0aGVpciB3aWR0aCB0byA3MCUgb2YgdGhlIHBhcmVudCBjb250YWluZXIgd2lkdGggKi9cbiAgb3ZlcmZsb3c6IGF1dG87IC8qIFRoaXMgd2lsbCBhZGQgc2Nyb2xsYmFycyBpZiB0aGUgY29udGVudCBpbnNpZGUgdGhlIGRpdnMgaXMgdG9vIHdpZGUgKi9cbiAgdGV4dC1hbGlnbjogbGVmdDtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2NlY2NiODtcbiAgbWluLWhlaWdodDogMTAwdmg7XG4gIHBhZGRpbmc6IDYwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDIwcHggMCAwIDA7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xufVxuXG4vKiBNZWRpYSBxdWVyeSBmb3Igc2NyZWVucyAxMDAwcHggb3IgbGVzcyAqL1xuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogMTAwMHB4KSB7XG4gIC5jb250ZW50IHtcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgaGVpZ2h0OiBhdXRvO1xuICB9XG5cbiAgLmNvbHVtbi1vbmUge1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIG1pbi1oZWlnaHQ6IGF1dG87XG4gICAgcGFkZGluZy10b3A6IDE1cHg7XG4gICAgcGFkZGluZy1ib3R0b206IDE1cHg7XG4gIH1cblxuICAuY29sdW1uLXR3b3tcbiAgICB3aWR0aDogMTAwJTtcbiAgfVxufVxuXG4uaW5mb0NvbnRlbnR7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGdhcDogMTZweDtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi50aHVtYm5haWx7XG4gIHdpZHRoOiAxMDAlO1xuICBtYXgtd2lkdGg6IDQyNXB4O1xufVxuXG4udXNlckluZm97XG4gIHdpZHRoOiAxMDAlO1xufVxuXG4uYnV0dG9uRGl2e1xuICB3aWR0aDogYXV0bztcbiAgZGlzcGxheTogZmxleDtcbiAgYWxpZ24taXRlbXM6IGVuZDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgZ2FwOiAxNnB4O1xufVxuXG4uYnV0dG9uTGlua3tcbiAgd2lkdGg6IDIwMHB4O1xufVxuXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiAxMDAwcHgpIHtcbiAgLnVzZXJJbmZvIHtcbiAgICBoZWlnaHQ6IGF1dG87XG4gIH1cbn1cblxuLndlbGNvbWUtbWVzc2FnZXtcbiAgZm9udC1zaXplOiAyOHB4O1xuICBmb250LXdlaWdodDogMTAwO1xuICBjb2xvcjogIzQyMzgyZTtcbiAgbWFyZ2luLWxlZnQ6IDIwcHg7XG4gIG1hcmdpbi1yaWdodDogMjBweDtcbiAgcGFkZGluZzogMTZweDtcbiAgdGV4dC1hbGlnbjogbGVmdDsgLyogdGhpcyB3aWxsIGFsaWduIHRleHQgdG8gdGhlIGxlZnQgZm9yIGJvdGggV2VsY29tZSBhbmQgTWVzc2FnZSAqL1xuXG59XG5cbi5sb2dpbkhlYWRlcntcbiAgZm9udC1zaXplOiAzMnB4O1xuICBmb250LXdlaWdodDogOTAwO1xuICBjb2xvcjogIzQyMzgyZTtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG59XG5cbi5mb3Jte1xuICBtYXgtd2lkdGg6IDgwJTtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi5lcnJvciB7XG4gIGNvbG9yOiAjNGI1YTY4O1xuICBmb250LXNpemU6IGxhcmdlO1xufVxuXG4uYmFja1RvTG9naW57XG4gIGxldHRlci1zcGFjaW5nOiAycHg7XG4gIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XG4gIGhlaWdodDogNDBweDtcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcbiAgYm9yZGVyOiBub25lO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIGNvbG9yOiAjZjJlZWU5O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjOTY3NjRGO1xuICB3aWR0aDogMjAwcHg7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLmNvbmZpcm1PckJhY2t7XG4gIG1hcmdpbi10b3A6IDQwcHg7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBnYXA6IDIwcHg7XG59XG5cblxuLkFwcC1oZWFkZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGZvbnQtc2l6ZTogY2FsYygxMHB4ICsgMnZtaW4pO1xuICBjb2xvcjogYmxhY2s7XG59XG5cbi51c2VyTWVzc2FnZXtcbiAgd2lkdGg6IDEwMCU7XG4gIGZvbnQtc2l6ZTogNDBweDtcbiAgZm9udC13ZWlnaHQ6IDkwMDtcbiAgY29sb3I6ICM0MjM4MmU7XG4gIHBhZGRpbmctdG9wOiAxNnB4O1xuICB0ZXh0LWFsaWduOiBsZWZ0OyAvKiB0aGlzIHdpbGwgYWxpZ24gdGV4dCB0byB0aGUgbGVmdCBmb3IgYm90aCBXZWxjb21lIGFuZCBNZXNzYWdlICovXG59XG5cbkBtZWRpYSAobWluLXdpZHRoOiAxMDAxcHgpIGFuZCAobWF4LXdpZHRoOiAxMzAwcHgpIHtcbiAgLnVzZXJNZXNzYWdlIHtcbiAgICBmb250LXNpemU6IDN2dztcbiAgfVxufVxuXG5cbi5zdGF0dXMtaW5kaWNhdG9yIHtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1hcm91bmQ7XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbi5jaXJjbGUtY29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGhlaWdodDogNTBweDsgLyogVGhlIGNvbnRhaW5lciBmb3IgdGhlIGNpcmNsZSBoYXMgYSBmaXhlZCBoZWlnaHQgKi9cbn1cblxuLmNpcmNsZS1pbm5lciB7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbn1cblxuLmxhcmdlLWNpcmNsZSAuY2lyY2xlLWlubmVyIHtcbiAgd2lkdGg6IDUwcHg7XG4gIGhlaWdodDogNTBweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzRiNWE2ODtcbiAgYm94LXNoYWRvdzogNXB4IDRweCAwcHggMHB4IHJnYmEoMCwgMCwgMCwgMC4yKTtcbn1cblxuLnNtYWxsLWNpcmNsZSAuY2lyY2xlLWlubmVyLFxuLnB1Ymxpc2hpbmctc2l0ZSAuY2lyY2xlLWlubmVyIHtcbiAgd2lkdGg6IDI1cHg7XG4gIGhlaWdodDogMjVweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzRiNWE2ODtcbn1cblxuLnN1YnRpdGxlIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICB3aWR0aDogMjAwcHg7XG4gIGhlaWdodDogMTVweDtcbiAgZm9udC13ZWlnaHQ6IDkwMDtcbiAgY29sb3I6ICM0MjM4MmU7XG59XG5cbi5zdGF0dXMtaXRlbSB7XG4gIGdhcDogOHB4O1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsgLyogQ2VudGVyIHRoZSBpdGVtcyB2ZXJ0aWNhbGx5ICovXG4gIGhlaWdodDogMTAwcHg7IC8qIFRoaXMgd2lsbCBnaXZlIGVub3VnaCBzcGFjZSBmb3IgdGhlIGNpcmNsZSBhbmQgc3VidGl0bGUgKi9cbiAgcG9zaXRpb246IHJlbGF0aXZlOyAvKiBUaGlzIHdpbGwgYWxsb3cgdGhlIGFic29sdXRlIHBvc2l0aW9uaW5nIG9mIGNoaWxkIGVsZW1lbnRzICovXG59Il0sInNvdXJjZVJvb3QiOiIifQ== */</style><style></style><style>#name{
+  margin-bottom: 10px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  color: #42382e;
+  margin-top: 5px;
+  width: 100%;
+  padding: 0px;
+}
+
+.instructions{
+  font-size: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+.stripe-form {
+    width: 100%;
+    max-width: 500px; /* Or any other width you prefer */
+  }
+  
+  #payment-form {
+    background-color: #ceccb8;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: 80%; /* or whatever maximum width you want */
+    margin: 0 auto; /* this will center the form */
+  }
+  
+  #payment-form p {
+    color: black;
+  }
+
+  hr {
+    border: none;
+    height: 1px;
+    color: #333; /* background color */
+    background-color: #333; /* same as border color */
+    width: 50%; /* length of the line */
+    margin: auto; /* center the line */
+  }
+
+.cardContainer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
+  #card-element {
+    width: 100%;
+   background-color: #f2eee9;
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  
+  #submit {
+    width: 200px;
+    height: 40px;
+    background-color: #424770;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #submit:disabled {
+    background-color: #9b9b9b;
+    cursor: not-allowed;
+  }
+  
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9DaGVja291dEZvcm0uY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsbUJBQW1CO0VBQ25CLFlBQVk7RUFDWixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGNBQWM7RUFDZCxlQUFlO0VBQ2YsV0FBVztFQUNYLFlBQVk7QUFDZDs7QUFFQTtFQUNFLGVBQWU7RUFDZixXQUFXO0VBQ1gsa0JBQWtCO0FBQ3BCOztBQUVBO0lBQ0ksV0FBVztJQUNYLGdCQUFnQixFQUFFLGtDQUFrQztFQUN0RDs7RUFFQTtJQUNFLHlCQUF5QjtJQUN6QixhQUFhO0lBQ2Isc0JBQXNCO0lBQ3RCLGdCQUFnQjtJQUNoQixVQUFVLEVBQUUsdUNBQXVDO0lBQ25ELGNBQWMsRUFBRSw4QkFBOEI7RUFDaEQ7O0VBRUE7SUFDRSxZQUFZO0VBQ2Q7O0VBRUE7SUFDRSxZQUFZO0lBQ1osV0FBVztJQUNYLFdBQVcsRUFBRSxxQkFBcUI7SUFDbEMsc0JBQXNCLEVBQUUseUJBQXlCO0lBQ2pELFVBQVUsRUFBRSx1QkFBdUI7SUFDbkMsWUFBWSxFQUFFLG9CQUFvQjtFQUNwQzs7QUFFRjtFQUNFLFdBQVc7RUFDWCxhQUFhO0VBQ2IsdUJBQXVCO0FBQ3pCOzs7RUFHRTtJQUNFLFdBQVc7R0FDWix5QkFBeUI7SUFDeEIsV0FBVztJQUNYLGFBQWE7SUFDYixrQkFBa0I7SUFDbEIsbUJBQW1CO0VBQ3JCOztFQUVBO0lBQ0UsWUFBWTtJQUNaLFlBQVk7SUFDWix5QkFBeUI7SUFDekIsY0FBYztJQUNkLFlBQVk7SUFDWixrQkFBa0I7SUFDbEIsZUFBZTtFQUNqQjs7RUFFQTtJQUNFLHlCQUF5QjtJQUN6QixtQkFBbUI7RUFDckIiLCJzb3VyY2VzQ29udGVudCI6WyIjbmFtZXtcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcbiAgaGVpZ2h0OiA0MHB4O1xuICBib3JkZXI6IG5vbmU7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgY29sb3I6ICM0MjM4MmU7XG4gIG1hcmdpbi10b3A6IDVweDtcbiAgd2lkdGg6IDEwMCU7XG4gIHBhZGRpbmc6IDBweDtcbn1cblxuLmluc3RydWN0aW9uc3tcbiAgZm9udC1zaXplOiAzMHB4O1xuICB3aWR0aDogMTAwJTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuXG4uc3RyaXBlLWZvcm0ge1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIG1heC13aWR0aDogNTAwcHg7IC8qIE9yIGFueSBvdGhlciB3aWR0aCB5b3UgcHJlZmVyICovXG4gIH1cbiAgXG4gICNwYXltZW50LWZvcm0ge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICNjZWNjYjg7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICAgIGFsaWduLWl0ZW1zOiBlbmQ7XG4gICAgd2lkdGg6IDgwJTsgLyogb3Igd2hhdGV2ZXIgbWF4aW11bSB3aWR0aCB5b3Ugd2FudCAqL1xuICAgIG1hcmdpbjogMCBhdXRvOyAvKiB0aGlzIHdpbGwgY2VudGVyIHRoZSBmb3JtICovXG4gIH1cbiAgXG4gICNwYXltZW50LWZvcm0gcCB7XG4gICAgY29sb3I6IGJsYWNrO1xuICB9XG5cbiAgaHIge1xuICAgIGJvcmRlcjogbm9uZTtcbiAgICBoZWlnaHQ6IDFweDtcbiAgICBjb2xvcjogIzMzMzsgLyogYmFja2dyb3VuZCBjb2xvciAqL1xuICAgIGJhY2tncm91bmQtY29sb3I6ICMzMzM7IC8qIHNhbWUgYXMgYm9yZGVyIGNvbG9yICovXG4gICAgd2lkdGg6IDUwJTsgLyogbGVuZ3RoIG9mIHRoZSBsaW5lICovXG4gICAgbWFyZ2luOiBhdXRvOyAvKiBjZW50ZXIgdGhlIGxpbmUgKi9cbiAgfVxuXG4uY2FyZENvbnRhaW5lcntcbiAgd2lkdGg6IDEwMCU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xufVxuXG5cbiAgI2NhcmQtZWxlbWVudCB7XG4gICAgd2lkdGg6IDEwMCU7XG4gICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjJlZWU5O1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIHBhZGRpbmc6IDEwcHg7XG4gICAgYm9yZGVyLXJhZGl1czogNHB4O1xuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XG4gIH1cbiAgXG4gICNzdWJtaXQge1xuICAgIHdpZHRoOiAyMDBweDtcbiAgICBoZWlnaHQ6IDQwcHg7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzQyNDc3MDtcbiAgICBjb2xvcjogI2ZmZmZmZjtcbiAgICBib3JkZXI6IG5vbmU7XG4gICAgYm9yZGVyLXJhZGl1czogNHB4O1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgfVxuICBcbiAgI3N1Ym1pdDpkaXNhYmxlZCB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzliOWI5YjtcbiAgICBjdXJzb3I6IG5vdC1hbGxvd2VkO1xuICB9XG4gICJdLCJzb3VyY2VSb290IjoiIn0= */</style><script src="./React App_files/v3"></script><link href="chrome-extension://iibninhmiggehlcdolcilmhacighjamp/shared-ui-components/fonts.css" rel="stylesheet"></head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>    
+    <div id="root"><div class="app"><nav class="navbar"><div class="navContents"><img src="./React App_files/logo.f9e6aee1054db2d90d6ef0c651e3d3bb.svg" alt="Logo"><div class="navButtons"><ul><li><a href="https://highlandwebdesign.com/">Full Site</a></li><li><button class="logout"><div class="logoutText">Log Out</div></button></li></ul></div></div></nav><div class="content"><div class="column-one"><div class="userInfo"><div class="infoContent"><div class="buttonDiv"><div class="userMessage">yourwebsite.com</div><img class="thumbnail" src="./React App_files/placeholder.png" alt="yourwebsite.com"><a class="buttonLink" href="https://google.com/" target="_blank" rel="noreferrer"><button class="button">VIEW MY SITE</button></a></div></div></div></div><div class="column-two"><div class="Dashboard"><header class="Dashboard-header"><div class="infoList"><div><div class="status">Status</div><div><div><div class="status-indicator"><div class="status-item"><div class="circle-container"><div class="circle large-circle"><div class="circle-inner"></div></div></div><div class="subtitle">AWAITING DOWN PAYMENT</div></div><div class="status-item"><div class="circle-container"><div class="circle small-circle"><div class="circle-inner"></div></div></div><div class="subtitle">DEVELOPING YOUR SITE</div></div><div class="status-item"><div class="circle-container"><div class="circle small-circle"><div class="circle-inner"></div></div></div><div class="subtitle">PUBLISHING SITE</div></div></div></div><hr><form id="payment-form"><div class="instructions">Please complete the down payment</div><input type="text" id="name" placeholder="   Full Name" required="" autocomplete="off"><div class="cardContainer"><div id="card-element" class="StripeElement StripeElement--empty"><div class="__PrivateStripeElement" style="margin: 0px !important; padding: 0px !important; border: none !important; display: block !important; background: transparent !important; position: relative !important; opacity: 1 !important;"><iframe name="__privateStripeFrame1316" frameborder="0" allowtransparency="true" scrolling="no" role="presentation" allow="payment *" src="./React App_files/elements-inner-card-7eb1f4b881023de5ec5a4cdca8438919.html" title="Secure card payment input frame" style="border: none !important; margin-top: 0px; margin-right: 0px !important; margin-bottom: 0px !important; margin-left: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; user-select: none !important; transform: translate(0px) !important; color-scheme: light only !important; height: 19.2px;"></iframe><input class="__PrivateStripeElement-input" aria-hidden="true" aria-label=" " autocomplete="false" maxlength="1" style="border: none !important; display: block !important; position: absolute !important; height: 1px !important; top: -1px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent !important; pointer-events: none !important; font-size: 16px !important;"></div></div></div><button id="submit"><span id="button-text">Pay</span></button></form></div></div></div></header></div></div></div></div></div>
+
+  
+
+<iframe frameborder="0" scrolling="no" style="background-color: transparent; border: 0px; display: none;" src="./React App_files/saved_resource.html"></iframe><div id="GOOGLE_INPUT_CHEXT_FLAG" style="display: none;" input="" input_stat="{&quot;tlang&quot;:true,&quot;tsbc&quot;:true,&quot;pun&quot;:true,&quot;mk&quot;:true,&quot;ss&quot;:true}"></div><iframe name="__privateStripeMetricsController1310" frameborder="0" allowtransparency="true" scrolling="no" role="presentation" allow="payment *" src="./React App_files/m-outer-93afeeb17bc37e711759584dbfc50d47.html" aria-hidden="true" tabindex="-1" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe><iframe name="__privateStripeController1311" frameborder="0" allowtransparency="true" scrolling="no" role="presentation" allow="payment *" src="./React App_files/controller-1db4675bbfaceb02b10e2a43118a1210.html" aria-hidden="true" tabindex="-1" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe></body></html>
