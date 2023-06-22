@@ -13,7 +13,7 @@ const CARD_ELEMENT_OPTIONS = {
       fontSize: "16px",
       backgroundColor: "#f2eee9",
       "::placeholder": {
-        color: "#42382e"
+        color: "#727274"
       },
       "::selection": {
         backgroundColor: "#ffffff"
@@ -27,6 +27,22 @@ const CARD_ELEMENT_OPTIONS = {
 };
 
 const CheckoutForm35 = ({ paymentText, email, id, fetchInfo }) => {
+
+  const calculateNextYearDate = () => {
+    let date = new Date(); // get current date
+    date.setFullYear(date.getFullYear() + 1); // add one year to it
+    return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`; // format it as mm/dd/yyyy
+};
+
+  const [isButtonPressed, setButtonPressed] = useState(false);
+
+  const buttonStyle = {
+    position: 'relative',
+    boxShadow: isButtonPressed ? 'none' : '5px 5px 0px rgba(0, 0, 0, 0.2)',
+    transform: isButtonPressed ? 'translate(5px, 5px)' : 'none',
+    transition: 'all 0.03s ease-in-out',
+  };
+
   const stripe = useStripe();
   const elements = useElements();
 
@@ -35,7 +51,7 @@ const CheckoutForm35 = ({ paymentText, email, id, fetchInfo }) => {
   const [processing, setProcessing] = useState(false);
 
   // The priceId of the subscription
-  const priceId = 'price_1NI0ZKBMrRg8GXeN2gT0MrpZ';
+  const priceId = 'price_1NGq2TBMrRg8GXeNPuQ0lh64';
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -76,7 +92,7 @@ const CheckoutForm35 = ({ paymentText, email, id, fetchInfo }) => {
   // Function to invoke the Lambda function
   const invokeLambdaFunction = async (data) => {
     console.log(data);
-    const response = await fetch("https://ulox9olcc8.execute-api.us-east-2.amazonaws.com/prod/subscription", {
+    const response = await fetch("https://ckn8566hw6.execute-api.us-east-2.amazonaws.com/prod/yearsubscription", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -142,7 +158,7 @@ const CheckoutForm35 = ({ paymentText, email, id, fetchInfo }) => {
       <div className='priceTag'>
     <div className='pmtInfo'>
     <div className='recurring'>
-      <div c>Starting xx/xx/xx</div>
+      <div c>Starting {calculateNextYearDate()}</div>
       <div >$100.00/yr</div>
     </div>
 
@@ -151,11 +167,16 @@ const CheckoutForm35 = ({ paymentText, email, id, fetchInfo }) => {
       <div > $950.00</div>
     </div>
     </div>
-    <button id='submit' type="submit" disabled={!stripe || processing}>
+    <button id='submit' type="submit" disabled={!stripe || processing}
+        style={buttonStyle}
+                onMouseDown={() => setButtonPressed(true)}
+                onMouseUp={() => setButtonPressed(false)}
+                onMouseLeave={() => setButtonPressed(false)}    
+    >
         {processing ? "Processing..." : "Submit Payment"}
       </button>
       </div>
-
+      <p className='errorDiv' >{paymentText}</p> 
 
       {processing && (
         <div className="loading">

@@ -13,7 +13,7 @@ const CARD_ELEMENT_OPTIONS = {
       fontSize: "16px",
       backgroundColor: "#f2eee9",
       "::placeholder": {
-        color: "#42382e"
+        color: "#727274"
       },
       "::selection": {
         backgroundColor: "#ffffff"
@@ -27,6 +27,22 @@ const CARD_ELEMENT_OPTIONS = {
 };
 
 const CheckoutForm3 = ({ paymentText, email, id, fetchInfo }) => {
+
+  const calculateNextMonthDate = () => {
+    let date = new Date(); // get current date
+    date.setMonth(date.getMonth() + 1); // add one month to it
+    return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`; // format it as mm/dd/yyyy
+};
+
+  const [isButtonPressed, setButtonPressed] = useState(false);
+
+  const buttonStyle = {
+    position: 'relative',
+    boxShadow: isButtonPressed ? 'none' : '5px 5px 0px rgba(0, 0, 0, 0.2)',
+    transform: isButtonPressed ? 'translate(5px, 5px)' : 'none',
+    transition: 'all 0.03s ease-in-out',
+  };
+
   const stripe = useStripe();
   const elements = useElements();
 
@@ -35,7 +51,7 @@ const CheckoutForm3 = ({ paymentText, email, id, fetchInfo }) => {
   const [processing, setProcessing] = useState(false);
 
   // The priceId of the subscription
-  const priceId = 'price_1NHu4ZBMrRg8GXeNfsHwS00V';
+  const priceId = 'price_1NLujVBMrRg8GXeNlolUyHx4';
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -142,7 +158,7 @@ const CheckoutForm3 = ({ paymentText, email, id, fetchInfo }) => {
       <div className='priceTag'>
     <div className='pmtInfo'>
     <div className='recurring'>
-      <div c>Starting xx/xx/xx</div>
+      <div >Starting {calculateNextMonthDate()}</div>
       <div >$100.00/mo</div>
     </div>
 
@@ -151,11 +167,18 @@ const CheckoutForm3 = ({ paymentText, email, id, fetchInfo }) => {
       <div > $50.00</div>
     </div>
     </div>
-    <button id='submit' type="submit" disabled={!stripe || processing}>
+    <button id='submit' type="submit" disabled={!stripe || processing}
+    
+    style={buttonStyle}
+            onMouseDown={() => setButtonPressed(true)}
+            onMouseUp={() => setButtonPressed(false)}
+            onMouseLeave={() => setButtonPressed(false)}
+    
+    >
         {processing ? "Processing..." : "Submit Payment"}
       </button>
       </div>
-
+      <p className='errorDiv' >{paymentText}</p> 
 
       {processing && (
         <div className="loading">

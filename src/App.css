@@ -1,5 +1,6 @@
 .app {
   background-color: #f2eee9;
+  width: 100%;
 }
 
 
@@ -115,6 +116,7 @@
 
 .navbar {
   background-color: #4B5A68;
+
 }
 
 .navbar ul {
@@ -177,7 +179,7 @@ cursor: pointer;
   justify-content: space-between;
   align-items: start;
   flex-direction: row;
-  height: 100vh;
+  height: auto;
   flex-wrap: nowrap; /* Do not wrap the flex items */
 }
 
@@ -188,9 +190,7 @@ cursor: pointer;
   overflow: auto;
   text-align: center;
   background-color: #f2eee9;
-  min-height: 100vh;
-  padding-left: 16px;
-  padding-right: 16px;
+  height: auto;
 
 }
 
@@ -201,11 +201,12 @@ cursor: pointer;
   overflow: auto; /* This will add scrollbars if the content inside the divs is too wide */
   text-align: left;
   background-color: #ceccb8;
-  min-height: 100vh;
-  padding: 60px;
   border-radius: 20px 0 0 0;
   display: flex;
   justify-content: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  height: 100vh;
 }
 
 /* Media query for screens 1000px or less */
@@ -246,6 +247,8 @@ cursor: pointer;
 }
 
 .titleThumbView{
+  padding-left: 10px;
+  padding-right: 10px;
   width: auto;
   display: flex;
   align-items: center;
@@ -290,7 +293,7 @@ cursor: pointer;
 }
 
 .form{
-  max-width: 80%;
+  max-width: 75%;
   width: 100%;
 }
 

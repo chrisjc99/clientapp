@@ -4,6 +4,7 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { BeatLoader } from "react-spinners";
 import "./CheckoutForm.css";
 
+
 const CARD_ELEMENT_OPTIONS = {
   style: {
     base: {
@@ -13,7 +14,7 @@ const CARD_ELEMENT_OPTIONS = {
       fontSize: "16px",
       backgroundColor: "#f2eee9",
       "::placeholder": {
-        color: "#42382e"
+        color: "#757579"
       },
       "::selection": {
         backgroundColor: "#ffffff"
@@ -32,6 +33,16 @@ const CheckoutForm1 = ({ paymentText, id: dynamoItemId, fetchInfo }) => {
   const stripe = useStripe();
   const elements = useElements();
 
+  const [isButtonPressed, setButtonPressed] = useState(false);
+
+  const buttonStyle = {
+    position: 'relative',
+    boxShadow: isButtonPressed ? 'none' : '5px 5px 0px rgba(0, 0, 0, 0.2)',
+    transform: isButtonPressed ? 'translate(5px, 5px)' : 'none',
+    transition: 'all 0.03s ease-in-out',
+  };
+
+
   const handleChange = async (event) => {
     setError(event.error ? event.error.message : "");
   };
@@ -41,94 +52,108 @@ const CheckoutForm1 = ({ paymentText, id: dynamoItemId, fetchInfo }) => {
     setProcessing(true);
     setError(null);
     const card = elements.getElement(CardElement);
-    const result = await stripe.createPaymentMethod({
-      type: "card",
-      card: card,
-    });
-
-    if (result.error) {
-      setError(`Payment failed: ${result.error.message}`);
+  
+    try {
+      const result = await stripe.createPaymentMethod({
+        type: "card",
+        card: card,
+      });
+    
+      if (error) {
+        throw new Error(`Payment failed: ${error.message}`);
+      }
+    
+      const paymentMethodId = result.paymentMethod.id;
+    
+      const response = await axios.post(
+        'https://10u8urrpc0.execute-api.us-east-2.amazonaws.com/prod/charge',
+        { id: paymentMethodId, amount: 5000, dynamoItemId }
+      );
+  
+      if (response && Math.floor(response.status / 100) !== 2) {
+        throw new Error('Payment failed on the server. Please try again.');
+      }
+  
+      const cardElement = elements.getElement(CardElement);
+      cardElement.clear();
+      setError(null);
       setProcessing(false);
-      return;
-    }
-
-    const paymentMethodId = result.paymentMethod.id;
-    const response = await axios.post(
-      'https://10u8urrpc0.execute-api.us-east-2.amazonaws.com/prod/charge', 
-      { id: paymentMethodId, amount: 5000, dynamoItemId }
-    )
-
-    if (Math.floor(response.status / 100) !== 2) {
-      setError('Payment failed on the server. Please try again.');
+      await fetchInfo();
+    } catch (error) {
+      setError('Card error, try again.');
       setProcessing(false);
-      return;
+      console.log('Error set:', error); // For debugging
     }
-
-    const cardElement = elements.getElement(CardElement);
-    cardElement.clear();
-    setError(null);
-    setProcessing(false);
-    await fetchInfo();
   };
-
   return (
     <div>
-<div>
-    <div className="status-indicator">
-      <div className="status-item">
-        <div className="circle-container">
-          <div className="circle large-circle">
-            <div className="circle-inner"></div>
+      <div>
+        <div className="status-indicator">
+          <div className="status-item">
+            <div className="circle-container">
+              <div className="circle large-circle">
+                <div className="circle-inner"></div>
+              </div>
+            </div>
+            <div className="subtitle">AWAITING DOWN PAYMENT</div>
+          </div>
+          <div className="status-item">
+            <div className="circle-container">
+              <div className="circle small-circle">
+                <div className="circle-inner"></div>
+              </div>
+            </div>
+            <div className="subtitle">DEVELOPING YOUR SITE</div>
+          </div>
+          <div className="status-item">
+            <div className="circle-container">
+              <div className="circle small-circle">
+                <div className="circle-inner"></div>
+              </div>
+            </div>
+            <div className="subtitle">PUBLISHING SITE</div>
           </div>
         </div>
-        <div className="subtitle">AWAITING DOWN PAYMENT</div>
       </div>
-      <div className="status-item">
-        <div className="circle-container">
-          <div className="circle small-circle">
-            <div className="circle-inner"></div>
-          </div>
-        </div>
-        <div className="subtitle">DEVELOPING YOUR SITE</div>
-      </div>
-      <div className="status-item">
-        <div className="circle-container">
-          <div className="circle small-circle">
-            <div className="circle-inner"></div>
-          </div>
-        </div>
-        <div className="subtitle">PUBLISHING SITE</div>
-      </div>
-    </div>
-</div>
 
-<hr />
-  
+      <hr />
+
       <form id="payment-form" onSubmit={handleSubmit}>
+      
       <div className="instructions">Please complete the down payment</div>
 
       <div className="inputs">
-      <input type="text" id="name" placeholder="Full Name" required />
+        <input type="text" id="name" placeholder="Full Name" required />
 
-      <div className="cardContainer">
-        <CardElement id="card-element" options={CARD_ELEMENT_OPTIONS} onChange={handleChange} />
+        <div className="cardContainer">
+          <CardElement id="card-element" options={CARD_ELEMENT_OPTIONS} onChange={handleChange} />
+        </div>
       </div>
-      </div>
-        <div className="priceTag">
-          <div className="price">Total: $50.00</div>
-           <button disabled={processing} id="submit">
+      
+      <div className="priceTag">
+        <div className="price">Total: $50.00</div>
+       
+        <button disabled={processing} id="submit"
+          style={buttonStyle}
+          onMouseDown={() => setButtonPressed(true)}
+          onMouseUp={() => setButtonPressed(false)}
+          onMouseLeave={() => setButtonPressed(false)}
+        >
           <span id="button-text">{processing ? "Processing..." : "Pay"}</span>
-        </button></div>
+        </button>
+      
 
-        {processing && (
-          <div className="loading">
-            <BeatLoader size={15} color="black" />
-          </div>
-        )}
-        {error && <div className="error-message">Payment failed. Please try again.</div>}
-      </form>
+      </div>
+      <p className="errorDiv">{paymentText}</p> 
+      {processing && (
+        <div className="loading">
+          <BeatLoader size={15} color="black" />
+        </div>
+      )}
+      {error && <div className="error-message">{error}</div>}
+    </form>
     </div>
-  );  
+  );
 };
 
 export default CheckoutForm1;

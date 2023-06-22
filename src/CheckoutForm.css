@@ -1,16 +1,21 @@
-#name{
+#name {
   height: 40px;
   border: none;
   border-radius: 5px;
   color: #42382e;
-
-  width: 99.25%;
+  width: 100%;
   padding-left: 5px;
   font-size: 16px;
   background-color: #f2eee9;
 }
 
-.inputs{
+@media (max-width: 1000px) {
+  #name {
+    width: auto;
+  }
+}
+
+.inputs {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -22,11 +27,11 @@
   .inputs {
     display: flex;
     flex-direction: column;
-}
+  }
 }
 
 
-.instructions{
+.instructions {
   font-size: 30px;
   width: 100%;
   text-align: center;
@@ -36,46 +41,53 @@
 @media (max-width: 400px) {
   .instructions {
     font-size: 20px;
-}
+  }
 }
 
 @media (max-width: 460px) {
   .instructions {
     font-size: 22px;
-}
+  }
 }
 
 .stripe-form {
-    width: 100%;
-    max-width: 500px; /* Or any other width you prefer */
-  }
-  
-  #payment-form {
-    background-color: #ceccb8;
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    width: 100%; /* or whatever maximum width you want */
-    margin: 0 auto; /* this will center the form */
-    gap: 20px;
-  }
-  
+  width: 100%;
+  max-width: 500px;
+  /* Or any other width you prefer */
+}
 
-  #payment-form p {
-    color: black;
-  }
+#payment-form {
+  background-color: #ceccb8;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  width: 100%;
+  /* or whatever maximum width you want */
+  margin: 0 auto;
+  /* this will center the form */
+  gap: 20px;
+}
 
-  hr {
-    border: none;
-    height: 1px;
-    color: #333; /* background color */
-    background-color: #333; /* same as border color */
-    width: 50%; /* length of the line */
-    margin: auto; /* center the line */
-    margin-bottom: 60px;
-  }
 
-.cardContainer{
+#payment-form p {
+  color: black;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  color: #333;
+  /* background color */
+  background-color: #333;
+  /* same as border color */
+  width: 50%;
+  /* length of the line */
+  margin: auto;
+  /* center the line */
+  margin-bottom: 60px;
+}
+
+.cardContainer {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -83,134 +95,148 @@
 }
 
 
-  #card-element {
-    width: 100%;
-   background-color: #f2eee9;
-    width: 100%;
-    padding: 10px;
-    border-radius: 4px;
-  }
-  
-  #submit {
-    width: 200px;
-    height: 40px;
-    background-color: #4B5A68;
-    color: #f2eee9;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
-  
-  #submit:disabled {
-    background-color: #9b9b9b;
-    cursor: not-allowed;
-  }
-  
-  .priceTag{
-    justify-content: space-between;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: end;
-    gap: 20px;
-  }
+#card-element {
+  width: 100%;
+  background-color: #f2eee9;
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+}
 
-  @media (max-width: 1350px) {
-    .priceTag {
-     flex-direction: column;
-  }
-  }
+#submit {
+  width: 200px;
+  height: 40px;
+  background-color: #4B5A68;
+  color: #f2eee9;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
 
-  .pmtInfo{
+#submit:disabled {
+  background-color: #9b9b9b;
+  cursor: not-allowed;
+}
+
+.priceTag {
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  gap: 20px;
+}
+
+@media (max-width: 1350px) {
+  .priceTag {
+    flex-direction: column;
+  }
+}
+
+.pmtInfo {
+  font-size: 24px;
+  width: 50%;
+  font-weight: 900;
+  color: #42382e;
+}
+
+@media (max-width: 1350px) {
+  .pmtInfo {
+    width: 100%;
+  }
+}
+
+
+
+@media (max-width: 440px) {
+  .pmtInfo {
+    font-size: 16px;
+  }
+}
+
+
+.recurring {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: space-between;
+}
+
+
+
+
+.oneTimePmt {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: space-between;
+}
+
+
+
+.price {
+  font-weight: 900;
+  font-size: 38px;
+  color: #42382e;
+}
+
+@media (max-width: 1135px) {
+  .priceTag {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .price {
+    font-weight: 900;
     font-size: 24px;
-    width: 50%;
-    font-weight: 900;
     color: #42382e;
   }
+}
 
-  @media (max-width: 1350px) {
-    .pmtInfo {
-     width: 100%;
-  }
-  }
+.active {
+  color: #4B5A68;
+  font-weight: 900;
+  font-size: 30px;
+  width: 100%;
+  text-align: start;
+}
 
+.nextPayment {
+  font-size: 30px;
+  width: 100%;
+  text-align: start;
+  color: #42382e;
+}
 
-
-  @media (max-width: 440px) {
-    .pmtInfo {
-      font-size: 16px;
-  }
-  }
-
-
-.recurring{
+.status-message {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.status-message2 {
+  display: flex;
+  flex-direction: column;
   align-items: end;
-  justify-content: space-between;
+  gap: 20px;
+}
+
+.errorDiv{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  font-size: 14px;
+  font-weight: 900;
 }
 
 
-
-
-.oneTimePmt{
-  display: flex;
-  flex-direction: row;
-  align-items: end;
-  justify-content: space-between;
+@media (max-width: 1135px) {
+  .errorDiv{
+    justify-content: center;
+  }
 }
-
-
-
-  .price{
-    font-weight: 900;
-    font-size: 38px;
-    color: #42382e;
-  }
-
-  @media (max-width: 1135px) {
-    .priceTag {
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-  }
-  }
-
-  @media (max-width: 400px) {
-    .price {
-      font-weight: 900;
-      font-size: 24px;
-      color: #42382e;
-  }
-  }
-
-  .active{
-    color: #4B5A68;
-    font-weight: 900;
-    font-size: 30px;
-    width: 100%;
-    text-align: start;
-  }
-
-  .nextPayment{
-      font-size: 30px;
-      width: 100%;
-      text-align: start;
-      color: #42382e;
-    }
-
-    .status-message{
-      display: flex;
-      flex-direction: column;
-      align-items: end;
-      gap: 20px;
-    }
-
-    .status-message2{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
