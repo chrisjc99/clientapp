@@ -10,7 +10,7 @@ function Navbar({ signOut, isSignedIn }) {
         <div className='navButtons'>
         <ul>
         <li>
-          <a href="https://highlandwebdesign.com/">Full Site</a>
+          <a href="https://carrepairsites.com/">Full Site</a>
         </li>
         {isSignedIn && (
           <li>
