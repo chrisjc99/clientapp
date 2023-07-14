@@ -45,6 +45,7 @@
   font-weight: 900;
   text-align: center;
   color: #42382e;
+  padding-bottom: 40px;
 }
 
 .Dashboard {
@@ -84,27 +85,12 @@
 .loginSwitch {
   font-size: 18px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 @media only screen and (min-width: 0rem) {
 
-.navButtons a {
-  color: #4E4B66;
-  /* Makes the text color white */
-  text-decoration: none;
-  /* Removes underline */
-  font-size: clamp(0.875rem, 1vw, 1rem);
-}
-
-.navButtons a:hover {
-  color: #4E4B66;
-  /* Makes the text color white even when hovered */
-}
-
-.navButtons .logout {
-  color: #4b5a68;
-  /* Changes the button's text color to white */
-}
 
 .logout {
   grid-row-gap: 8px;
@@ -740,4 +726,36 @@ ul{
   position: relative;
   z-index: 1;
   box-sizing: border-box;
+}
+
+.navButtons a {
+  color: #4E4B66;
+  text-decoration: none;
+  font-size: clamp(0.875rem, 1vw, 1rem);
+  position: relative;  /* Added this to position the pseudo-element correctly */
+}
+
+.navButtons a:before {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: #3A2EFE;
+  opacity: 1;
+  position: absolute;
+  display: block;
+  bottom: -5px;
+  left: 0;
+  transition: width .3s;
+}
+
+.navButtons a:hover {
+  color: #4E4B66;
+}
+
+.navButtons a:hover:before {
+  width: 100%;
+}
+
+.navButtons .logout {
+  color: #4b5a68;
 }
