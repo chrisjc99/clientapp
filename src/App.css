@@ -27,7 +27,7 @@
   margin-top: 5px;
 }
 
-.button{
+.button {
   letter-spacing: 2px;
   text-transform: uppercase;
   height: 40px;
@@ -40,14 +40,14 @@
   cursor: pointer;
 }
 
-.status{
+.status {
   font-size: 60px;
   font-weight: 900;
   text-align: center;
   color: #42382e;
 }
 
-.Dashboard{
+.Dashboard {
   width: 100%;
   max-width: 80%;
 }
@@ -62,13 +62,13 @@
   cursor: not-allowed;
 }
 
-.getStarted{
+.getStarted {
   color: blue;
   text-decoration: underline;
   cursor: pointer;
 }
 
-.loginActions{
+.loginActions {
   margin-top: 40px;
   display: flex;
   flex-direction: column;
@@ -77,98 +77,52 @@
   gap: 20px;
 }
 
-.loginOr{
+.loginOr {
   font-size: 28px;
 }
 
-.loginSwitch{
+.loginSwitch {
   font-size: 18px;
   text-align: center;
 }
 
-.navContents{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-left: 120px;
-  margin-right: 120px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-@media (max-width: 991px) {
-  .navContents {
-    margin-left: 65px;
-    margin-right: 65px;
-  }
-}
-
-@media (max-width: 767px) {
-  .navContents {
-    margin-left: 30px;
-    margin-right: 30px;
-  }
-}
-
-@media (max-width: 479px) {
-  .navContents {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-}
-
-
-
-.navbar {
-  background-color: #4B5A68;
-
-}
-
-.navbar ul {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.navbar ul li {
-  margin-left: 20px;
-}
-
+@media only screen and (min-width: 0rem) {
 
 .navButtons a {
-  color: #f2eee9; /* Makes the text color white */
-  text-decoration: none; /* Removes underline */
-  font-size: 14px;
+  color: #4E4B66;
+  /* Makes the text color white */
+  text-decoration: none;
+  /* Removes underline */
+  font-size: clamp(0.875rem, 1vw, 1rem);
 }
 
 .navButtons a:hover {
-  color: #f2eee9; /* Makes the text color white even when hovered */
+  color: #4E4B66;
+  /* Makes the text color white even when hovered */
 }
 
 .navButtons .logout {
-  color: #4b5a68;  /* Changes the button's text color to white */
+  color: #4b5a68;
+  /* Changes the button's text color to white */
 }
 
-.logout{
-grid-row-gap: 8px;
-background-color: #f2eee9;
-border-radius: 3px;
-flex: 0 auto;
-justify-content: center;
-align-items: center;
-margin-top: 5px;
-margin-bottom: 5px;
-padding: 8px 20px;
-display: flex;
-border: none;
-cursor: pointer;
+.logout {
+  grid-row-gap: 8px;
+  background-color: #f2eee9;
+  border-radius: 3px;
+  flex: 0 auto;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 8px 20px;
+  display: flex;
+  border: none;
+  cursor: pointer;
 }
 
 
-.logoutText{
+.logoutText {
   height: 24px;
   display: flex;
   align-items: center;
@@ -185,25 +139,28 @@ cursor: pointer;
   align-items: start;
   flex-direction: row;
   height: auto;
-  flex-wrap: nowrap; /* Do not wrap the flex items */
+  flex-wrap: nowrap;
+  /* Do not wrap the flex items */
 }
 
 .column-one {
   display: flex;
   justify-content: center;
-  width: 40%; 
+  width: 40%;
   overflow: auto;
   text-align: center;
   background-color: #f2eee9;
   height: auto;
 
 }
-
+}
 
 .column-two {
   font-size: 12px;
-  width: 100%; /* This will limit their width to 70% of the parent container width */
-  overflow: auto; /* This will add scrollbars if the content inside the divs is too wide */
+  width: 100%;
+  /* This will limit their width to 70% of the parent container width */
+  overflow: auto;
+  /* This will add scrollbars if the content inside the divs is too wide */
   text-align: left;
   background-color: #ceccb8;
   border-radius: 20px 0 0 0;
@@ -229,12 +186,12 @@ cursor: pointer;
     padding-bottom: 15px;
   }
 
-  .column-two{
+  .column-two {
     width: 100%;
   }
 }
 
-.infoContent{
+.infoContent {
   flex-direction: column;
   display: flex;
   align-items: center;
@@ -242,16 +199,16 @@ cursor: pointer;
   width: 100%;
 }
 
-.thumbnail{
+.thumbnail {
   width: 100%;
   max-width: 425px;
 }
 
-.userInfo{
+.userInfo {
   width: 100%;
 }
 
-.titleThumbView{
+.titleThumbView {
   padding-left: 10px;
   padding-right: 10px;
   width: auto;
@@ -261,14 +218,14 @@ cursor: pointer;
   gap: 16px;
 }
 
-.thumbButton{
+.thumbButton {
   display: flex;
   flex-direction: column;
   gap: 8px;
   align-items: end;
 }
 
-.buttonLink{
+.buttonLink {
   width: 200px;
 }
 
@@ -278,18 +235,19 @@ cursor: pointer;
   }
 }
 
-.welcome-message{
+.welcome-message {
   font-size: 28px;
   font-weight: 100;
   color: #42382e;
   margin-left: 20px;
   margin-right: 20px;
   padding: 16px;
-  text-align: left; /* this will align text to the left for both Welcome and Message */
+  text-align: left;
+  /* this will align text to the left for both Welcome and Message */
 
 }
 
-.loginHeader{
+.loginHeader {
   font-size: 32px;
   font-weight: 900;
   color: #42382e;
@@ -297,7 +255,7 @@ cursor: pointer;
   justify-content: center;
 }
 
-.form{
+.form {
   max-width: 75%;
   width: 100%;
 }
@@ -307,7 +265,7 @@ cursor: pointer;
   font-size: large;
 }
 
-.backToLogin{
+.backToLogin {
   letter-spacing: 2px;
   text-transform: uppercase;
   height: 40px;
@@ -320,7 +278,7 @@ cursor: pointer;
   cursor: pointer;
 }
 
-.confirmOrBack{
+.confirmOrBack {
   margin-top: 40px;
   display: flex;
   flex-direction: row;
@@ -340,13 +298,14 @@ cursor: pointer;
   color: black;
 }
 
-.userMessage{
+.userMessage {
   width: 100%;
   font-size: 40px;
   font-weight: 900;
   color: #42382e;
   padding-top: 16px;
-  text-align: left; /* this will align text to the left for both Welcome and Message */
+  text-align: left;
+  /* this will align text to the left for both Welcome and Message */
 }
 
 @media (min-width: 1001px) and (max-width: 1300px) {
@@ -367,7 +326,8 @@ cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px; /* The container for the circle has a fixed height */
+  height: 50px;
+  /* The container for the circle has a fixed height */
 }
 
 .circle-inner {
@@ -399,13 +359,13 @@ cursor: pointer;
 @media (max-width: 1135px) {
   .subtitle {
     width: 120px;
-}
+  }
 }
 
 @media (max-width: 400px) {
   .subtitle {
     width: 100px;
-}
+  }
 }
 
 .status-item {
@@ -413,7 +373,371 @@ cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Center the items vertically */
-  height: 100px; /* This will give enough space for the circle and subtitle */
-  position: relative; /* This will allow the absolute positioning of child elements */
+  justify-content: center;
+  /* Center the items vertically */
+  height: 100px;
+  /* This will give enough space for the circle and subtitle */
+  position: relative;
+  /* This will allow the absolute positioning of child elements */
+}
+
+
+
+.navbar {
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  box-sizing: border-box;
+  background-color: #fff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  position: relative;
+  z-index: 10000;
+}
+
+.navbar:before {
+  content: '';
+  width: 100%;
+  height: 0vh;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  position: absolute;
+  display: block;
+  top: 100%;
+  right: 0;
+  z-index: -1100;
+  opacity: 0;
+  transition: height .5s, opacity .5s;
+}
+
+.navbar.cs-active:before {
+  height: 150vh;
+  opacity: 1;
+}
+
+.navbar.cs-active .cs-ul-wrapper {
+  opacity: 1;
+  transform: scaleY(1);
+  transition-delay: .15s;
+}
+
+.navbar.cs-active .cs-li {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.navbar .navContents {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .cs-logo {
+  width: 40%;
+  max-width: 9.125rem;
+  height: 100%;
+  margin: 0 auto 0 0;
+  padding: 0;
+  /* prevents padding from affecting height and width */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.navbar .cs-logo img {
+  width: 100%;
+  height: 100%;
+  /* ensures the image never overflows the container. It stays contained within it's width and height and expands to fill it then stops once it reaches an edge */
+  object-fit: contain;
+}
+
+.navbar .cs-toggle {
+  /* 44px - 48px */
+  width: clamp(2.75rem, 6vw, 3rem);
+  height: clamp(2.75rem, 6vw, 3rem);
+  margin: 0 0 0 auto;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar .cs-active .cs-line1 {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(225deg);
+}
+
+.navbar .cs-active .cs-line2 {
+  top: 50%;
+  transform-origin: center;
+  transform: translate(-50%, -50%) translateY(0) rotate(-225deg);
+}
+
+.navbar .cs-active .cs-line3 {
+  bottom: 100%;
+  opacity: 0;
+}
+
+.navbar .cs-box {
+  /* 24px - 28px */
+  width: clamp(1.5rem, 2vw, 1.75rem);
+  /* 14px - 16px */
+  height: clamp(0.875rem, 1.5vw, 1rem);
+  position: relative;
+}
+
+.navbar .cs-line {
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #1a1a1a;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbar .cs-line1 {
+  top: 0;
+  transform-origin: center;
+  transition: transform .5s, top .3S, left .3S;
+  animation-duration: .7s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+}
+
+.navbar .cs-line2 {
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  transition: top .3s, left .3s, transform .5s;
+  animation-duration: .7s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+}
+
+.navbar .cs-line3 {
+  bottom: 0;
+  transition: bottom .3s, opacity .3s;
+}
+
+.navbar .cs-ul-wrapper {
+  width: 100%;
+  height: auto;
+  padding-bottom: 2.4em;
+  opacity: 0;
+  background-color: #fff;
+  box-shadow: inset rgba(0, 0, 0, 0.2) 0px 8px 24px;
+  overflow: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: -1;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform .4s, opacity .3s;
+}
+
+.navbar .cs-ul {
+  margin: 0;
+  padding: 3rem 0 0 0;
+  width: 100%;
+  height: auto;
+  max-height: 65vh;
+  overflow: scroll;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.navbar .cs-li {
+  width: 100%;
+  text-align: center;
+  list-style: none;
+  margin-right: 0;
+  /* transition from these values */
+  transform: translateY(-4.375rem);
+  opacity: 0;
+  transition: transform .6s, opacity .9s;
+}
+
+.navbar .cs-li:nth-of-type(1) {
+  transition-delay: .05s;
+}
+
+.navbar .cs-li:nth-of-type(2) {
+  transition-delay: .1s;
+}
+
+.navbar .cs-li:nth-of-type(3) {
+  transition-delay: .15s;
+}
+
+.navbar .cs-li:nth-of-type(4) {
+  transition-delay: .2s;
+}
+
+.navbar .cs-li:nth-of-type(5) {
+  transition-delay: .25s;
+}
+
+.navbar .cs-li:nth-of-type(6) {
+  transition-delay: .3s;
+}
+
+.navbar .cs-li:nth-of-type(7) {
+  transition-delay: .35s;
+}
+
+.navbar .cs-li:nth-of-type(8) {
+  transition-delay: .4s;
+}
+
+.navbar .cs-li:nth-of-type(9) {
+  transition-delay: .45s;
+}
+
+.navbar .cs-li:nth-of-type(10) {
+  transition-delay: .5s;
+}
+
+.navbar .cs-li:nth-of-type(11) {
+  transition-delay: .55s;
+}
+
+.navbar .cs-li:nth-of-type(12) {
+  transition-delay: .6s;
+}
+
+.navbar .cs-li:nth-of-type(13) {
+  transition-delay: .65s;
+}
+
+.navbar .cs-li-link {
+  /* 16px - 24px */
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  line-height: 1.2em;
+  text-decoration: none;
+  margin: 0;
+  color: var(--headerColor);
+  display: inline-block;
+  position: relative;
+}
+
+.navbar .cs-li-link:before {
+  /* active state underline */
+  content: '';
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  opacity: 1;
+  position: absolute;
+  display: none;
+  bottom: -0.125rem;
+  left: 0;
+}
+
+.navbar .cs-li-link.cs-active:before {
+  display: block;
+}
+
+.navbar .cs-button-solid {
+  display: none;
+}
+
+
+@media only screen and (min-width: 64rem) {
+  .navbar .navContents {
+    width: 100%;
+
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
+
+li {
+  list-style-type: none;
+}
+
+
+  /* Mobile - 1023px */
+  @media only screen and (max-width: 63.9375rem) {
+.navbar .cs-logo {
+  width: 40%;
+  max-width: 9.125rem;
+  height: 100%;
+  margin: 0 auto 0 0;
+  padding: 0;
+  /* prevents padding from affecting height and width */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+.navbar .cs-logo img {
+  width: 100%;
+  height: 100%;
+  /* ensures the image never overflows the container. It stays contained within it's width and height and expands to fill it then stops once it reaches an edge */
+  object-fit: contain;
+}
+}
+
+
+
+  /* Small Desktop - 1024px */
+  @media only screen and (min-width: 64rem) {
+.navbar .cs-logo {
+  width: 18.4%;
+  height: 4.0625rem;
+  /* margin-right auto pushes everything away from it to the right */
+  margin: 0 auto 0 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+.navbar .cs-logo img {
+  width: 100%;
+  height: 100%;
+  /* ensures the image never overflows the container. It stays contained within it's width and height and expands to fill it then stops once it reaches an edge */
+  object-fit: contain;
+  background-color: ;
+}
+}
+
+ul{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(1.25rem, 2.6vw, 2.25rem);
+}
+
+.logout {
+  font-size: 1rem;
+  line-height: clamp(2.875em, 5.5vw, 3.5em);
+  text-decoration: none;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  color: #fff !important;
+  min-width: 9.375rem;
+  padding: 0 1.5rem;
+  background-color: #3A2EFE;
+  border-radius: 0.25rem;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
 }

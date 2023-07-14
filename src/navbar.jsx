@@ -1,12 +1,15 @@
 //navbar.jsx
-import logo from './images/logo.svg';
+import logo from './images/logo.webp';
 import React from 'react';
 
 function Navbar({ signOut, isSignedIn }) {
   return (
     <nav className="navbar">
       <div className='navContents'>
-      <img src={logo} alt="Logo" />
+        <a className='cs-logo'>
+        <img src={logo} alt="Logo" width="210" height="29"/>
+        </a>
+
         <div className='navButtons'>
         <ul>
         <li>
@@ -14,8 +17,8 @@ function Navbar({ signOut, isSignedIn }) {
         </li>
         {isSignedIn && (
           <li>
-            <button className='logout' onClick={signOut}>
-            <div className='logoutText'>Log Out</div></button>
+            <button className='logout' onClick={signOut}> Log Out
+            </button>
           </li>
         )}
       </ul>
