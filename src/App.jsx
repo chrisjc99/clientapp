@@ -207,6 +207,7 @@ function App() {
                   <input
                     name="verificationCode"
                     placeholder="Enter Verification Code"
+                    value={verificationCode} // Bind verificationCode state to the input value
                     onChange={e => setVerificationCode(e.target.value)}
                   />
                   <div className= 'confirmOrBack'>
