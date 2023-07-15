@@ -3,7 +3,7 @@
 
 
 .app {
-  background-color: #f2eee9;
+  background-color: white;
   width: 100%;
 }
 
@@ -28,23 +28,32 @@
 }
 
 .button {
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  height: 40px;
-  margin-bottom: 10px;
+  font-size: 1rem;
+  line-height: clamp(2.875em, 5.5vw, 3.5em);
+  text-decoration: none;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  color: #fff;
+  min-width: 9.375rem;
+  padding: 0 1.5rem;
+  background-color: #3A2EFE;
+  border-radius: 0.25rem;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
   border: none;
-  border-radius: 5px;
-  color: #f2eee9;
-  background-color: #4B5A68;
-  width: 200px;
   cursor: pointer;
 }
+
+
 
 .status {
   font-size: 60px;
   font-weight: 900;
   text-align: center;
-  color: #42382e;
+  color: black;
   padding-bottom: 40px;
 }
 
@@ -87,6 +96,9 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }
 
 @media only screen and (min-width: 0rem) {
@@ -135,7 +147,7 @@
   width: 40%;
   overflow: auto;
   text-align: center;
-  background-color: #f2eee9;
+  background-color: white;
   height: auto;
 
 }
@@ -148,7 +160,7 @@
   overflow: auto;
   /* This will add scrollbars if the content inside the divs is too wide */
   text-align: left;
-  background-color: #ceccb8;
+  background-color: #bdd7d7;
   border-radius: 20px 0 0 0;
   display: flex;
   justify-content: center;
@@ -209,11 +221,9 @@
   flex-direction: column;
   gap: 8px;
   align-items: end;
+  margin-bottom: 10px;
 }
 
-.buttonLink {
-  width: 200px;
-}
 
 @media screen and (max-width: 1000px) {
   .userInfo {
@@ -224,7 +234,7 @@
 .welcome-message {
   font-size: 28px;
   font-weight: 100;
-  color: #42382e;
+  color: black;
   margin-left: 20px;
   margin-right: 20px;
   padding: 16px;
@@ -236,7 +246,7 @@
 .loginHeader {
   font-size: 32px;
   font-weight: 900;
-  color: #42382e;
+  color: black;
   display: flex;
   justify-content: center;
 }
@@ -252,16 +262,24 @@
 }
 
 .backToLogin {
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  height: 40px;
-  margin-bottom: 10px;
+  font-size: 1rem;
+  line-height: clamp(2.875em, 5.5vw, 3.5em);
+  text-decoration: none;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  color: #fff;
+  min-width: 9.375rem;
+  padding: 0 1.5rem;
+  background-color: #3A2EFE;
+  border-radius: 0.25rem;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
   border: none;
-  border-radius: 5px;
-  color: #f2eee9;
-  background-color: #96764F;
-  width: 200px;
   cursor: pointer;
+  background-color: #FF4F00;
 }
 
 .confirmOrBack {
@@ -288,7 +306,7 @@
   width: 100%;
   font-size: 40px;
   font-weight: 900;
-  color: #42382e;
+  color: black;
   padding-top: 16px;
   text-align: left;
   /* this will align text to the left for both Welcome and Message */
@@ -297,9 +315,16 @@
 @media (min-width: 1001px) and (max-width: 1300px) {
   .userMessage {
     font-size: 2vw;
+    text-align: left;
   }
 }
 
+
+@media (max-width: 1000px) {
+  .userMessage {
+    text-align: center;
+  }
+}
 
 .status-indicator {
   display: flex;
@@ -323,7 +348,7 @@
 .large-circle .circle-inner {
   width: 50px;
   height: 50px;
-  background-color: #4b5a68;
+  background-color: #3A2EFE;
   box-shadow: 5px 4px 0px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -331,7 +356,7 @@
 .publishing-site .circle-inner {
   width: 25px;
   height: 25px;
-  background-color: #4b5a68;
+  background-color: #3A2EFE;
 }
 
 .subtitle {
@@ -339,7 +364,7 @@
   width: 175px;
   height: 15px;
   font-weight: 900;
-  color: #42382e;
+  color: black;
 }
 
 @media (max-width: 1135px) {

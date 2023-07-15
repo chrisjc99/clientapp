@@ -116,6 +116,15 @@ function App() {
 
 
   const [isButtonPressed, setIsButtonPressed] = useState(false);
+  const [isCreateAccountButtonPressed, setIsCreateAccountButtonPressed] = useState(false);
+
+
+  const createAccountButtonStyle = {
+    position: 'relative',
+    transition: 'all 0.03s ease-in-out',
+    boxShadow: isCreateAccountButtonPressed ? 'none' : '5px 5px 0px rgba(0, 0, 0, 0.2)',
+    transform: isCreateAccountButtonPressed ? 'translate(5px, 5px)' : 'none',
+  };
 
   const buttonStyle = {
     position: 'relative',
@@ -191,6 +200,7 @@ function App() {
       signIn();  // automatically sign in after confirming sign up
     } catch (error) {
       console.log('error confirming sign up', error);
+      setErrorMessage('Invalid verification code.'); // Display an error message for invalid code
     }
   };
 
@@ -215,6 +225,7 @@ function App() {
                     value={verificationCode} // Bind verificationCode state to the input value
                     onChange={e => setVerificationCode(e.target.value)}
                   />
+                   {errorMessage && <div className="error">{errorMessage}</div>}
                   <div className= 'confirmOrBack'>
                   <button 
                     className='backToLogin' 
@@ -339,10 +350,16 @@ function App() {
                 <div className='loginOr'>
                   -OR-
                 </div>
-                <div className='loginSwitch'>Don't have an account? <a className='getStarted' onClick={() => {
+                <div className='loginSwitch'>Don't have an account? 
+                <button className='button' onClick={() => {
               setIsCreatingAccount(true);
               clearFields();
-            }}>Get started</a></div>
+            }}
+            style={createAccountButtonStyle}
+            onMouseDown={() => setIsCreateAccountButtonPressed(true)}
+            onMouseUp={() => setIsCreateAccountButtonPressed(false)}
+            onMouseLeave={() => setIsCreateAccountButtonPressed(false)}
+            >Create Account</button></div>
                 </div>
               </div>
             )

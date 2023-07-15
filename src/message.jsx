@@ -36,7 +36,7 @@ function Message({ info }) {
               <button className='button' style={buttonStyle} 
               onMouseDown={() => setButtonPressed(true)}
               onMouseUp={() => setButtonPressed(false)}
-              onMouseLeave={() => setButtonPressed(false)} >VIEW MY SITE</button>
+              onMouseLeave={() => setButtonPressed(false)} >View My Site</button>
             </a>
           )}
           </div>

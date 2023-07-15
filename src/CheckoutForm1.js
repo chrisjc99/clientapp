@@ -12,7 +12,7 @@ const CARD_ELEMENT_OPTIONS = {
       fontFamily: 'Montserrat, sans-serif',
       fontSmoothing: "antialiased",
       fontSize: "16px",
-      backgroundColor: "#f2eee9",
+      backgroundColor: "#ffffff",
       "::placeholder": {
         color: "#757579"
       },

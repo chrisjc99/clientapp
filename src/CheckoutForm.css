@@ -10,7 +10,7 @@
   width: 100%;
   padding-left: 5px;
   font-size: 16px;
-  background-color: #f2eee9;
+  background-color: white;
 }
 
 @media (max-width: 1000px) {
@@ -39,7 +39,7 @@
   font-size: 30px;
   width: 100%;
   text-align: center;
-  color: #42382e;
+  color: black;
 }
 
 @media (max-width: 400px) {
@@ -61,7 +61,7 @@
 }
 
 #payment-form {
-  background-color: #ceccb8;
+  background-color: #bdd7d7;
   display: flex;
   flex-direction: column;
   align-items: end;
@@ -101,22 +101,30 @@ hr {
 
 #card-element {
   width: 100%;
-  background-color: #f2eee9;
+  background-color: #ffffff;
   width: 100%;
   padding: 10px;
   border-radius: 4px;
 }
 
 #submit {
-  width: 200px;
-  height: 40px;
-  background-color: #4B5A68;
-  color: #f2eee9;
+  font-size: 1rem;
+  line-height: clamp(2.875em, 5.5vw, 3.5em);
+  text-decoration: none;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  color: #fff;
+  min-width: 9.375rem;
+  padding: 0 1.5rem;
+  background-color: #3A2EFE;
+  border-radius: 0.25rem;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 2px;
 }
 
 #submit:disabled {
@@ -143,7 +151,7 @@ hr {
   font-size: 24px;
   width: 50%;
   font-weight: 900;
-  color: #42382e;
+  color: black;
 }
 
 @media (max-width: 1350px) {
@@ -183,7 +191,7 @@ hr {
 .price {
   font-weight: 900;
   font-size: 38px;
-  color: #42382e;
+  color: black;
 }
 
 @media (max-width: 1135px) {
@@ -203,7 +211,7 @@ hr {
 }
 
 .active {
-  color: #4B5A68;
+  color: #3A2EFE;
   font-weight: 900;
   font-size: 30px;
   width: 100%;
@@ -214,7 +222,7 @@ hr {
   font-size: 30px;
   width: 100%;
   text-align: start;
-  color: #42382e;
+  color: black;
 }
 
 .status-message {
