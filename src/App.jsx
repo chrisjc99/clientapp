@@ -166,20 +166,25 @@ function App() {
       console.log(user);
       setIsConfirming(true); // Switch to verification stage
   
-
+  
       setVerificationCode(''); // Keep verification code field as it is
     } catch (error) {
       if (error.code === 'UsernameExistsException') {
         // An account with this email already exists but hasn't been confirmed yet.
         // Switch to verification stage to allow the user to confirm their account.
         setIsConfirming(true);
+      } else if (error.code === 'InvalidParameterException') {
+        // Password is too short
+        setErrorMessage("Your password is too short."); // Display an error message
       } else {
         console.log('error signing up:', error);
+        setErrorMessage(error.message);
       }
     } finally {
       setIsButtonPressed(false);
     }
   };
+  
   const confirmSignUp = async () => {
     try {
       await Auth.confirmSignUp(email, verificationCode);
