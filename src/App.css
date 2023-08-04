@@ -37,7 +37,7 @@
   color: #fff;
   min-width: 9.375rem;
   padding: 0 1.5rem;
-  background-color: #3A2EFE;
+  background-color: #4B5A68;
   border-radius: 0.25rem;
   display: inline-block;
   position: relative;
@@ -271,7 +271,7 @@
   color: #fff;
   min-width: 9.375rem;
   padding: 0 1.5rem;
-  background-color: #3A2EFE;
+  background-color: #4B5A68;
   border-radius: 0.25rem;
   display: inline-block;
   position: relative;
@@ -348,7 +348,7 @@
 .large-circle .circle-inner {
   width: 50px;
   height: 50px;
-  background-color: #3A2EFE;
+  background-color: #4B5A68;
   box-shadow: 5px 4px 0px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -356,7 +356,7 @@
 .publishing-site .circle-inner {
   width: 25px;
   height: 25px;
-  background-color: #3A2EFE;
+  background-color: #4B5A68;
 }
 
 .subtitle {
@@ -745,7 +745,7 @@ ul{
   color: #fff !important;
   min-width: 9.375rem;
   padding: 0 1.5rem;
-  background-color: #3A2EFE;
+  background-color: #4B5A68;
   border-radius: 0.25rem;
   display: inline-block;
   position: relative;
@@ -764,7 +764,7 @@ ul{
   content: '';
   width: 0%;
   height: 2px;
-  background: #3A2EFE;
+  background: #4B5A68;
   opacity: 1;
   position: absolute;
   display: block;

@@ -117,7 +117,7 @@ hr {
   color: #fff;
   min-width: 9.375rem;
   padding: 0 1.5rem;
-  background-color: #3A2EFE;
+  background-color: #4B5A68;
   border-radius: 0.25rem;
   display: inline-block;
   position: relative;
@@ -211,7 +211,7 @@ hr {
 }
 
 .active {
-  color: #3A2EFE;
+  color: #4B5A68;
   font-weight: 900;
   font-size: 30px;
   width: 100%;
