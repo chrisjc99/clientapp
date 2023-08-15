@@ -6,7 +6,7 @@ function Navbar({ signOut, isSignedIn }) {
   return (
     <nav className="navbar">
       <div className='navContents'>
-        <a href='https://carrepairsites.com' className='cs-logo'>
+        <a href='https://realtysitedesigns.com' className='cs-logo'>
         <img src={logo} alt="Logo" width="210" height="29"/>
         </a>
         <div className='navButtons'>
